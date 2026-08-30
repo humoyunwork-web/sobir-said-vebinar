@@ -3,12 +3,19 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Bo'g'im va suyak og'rig'i bo'yicha bepul vebinar — Sobir Said</title>
-<meta name="description" content="Yillar davom etgan bo'g'im va suyak og'rig'i bilan nima qilish kerak. Sobir Said bilan bepul onlayn vebinar — 7–8 sentabr, 20:00." />
-<meta property="og:title" content="Bo'g'im va suyak og'rig'i bo'yicha bepul vebinar" />
+<title>Bo'g'im va suyak salomatligi haqida bepul vebinar — Sobir Said</title>
+<meta name="description" content="Bo'g'im-suyak tizimi, harakat va profilaktika haqida bepul onlayn vebinar. Sobir Said bilan — 7–8 sentabr, 20:00." />
+<meta property="og:title" content="Bo'g'im va suyak salomatligi haqida bepul vebinar" />
 <meta property="og:description" content="Sobir Said bilan bepul onlayn vebinar. 7–8 sentabr, 20:00." />
 <meta property="og:type" content="website" />
 <meta name="theme-color" content="#ffffff" />
+
+<!-- ============================================================
+     META PIXEL: bazaviy kodni shu yerga joylashtiring.
+     Forma to'ldirilganda quyidagi script "Lead" hodisasini
+     avtomatik jo'natadi (agar fbq mavjud bo'lsa).
+     ============================================================ -->
+
 <style>
   :root{
     --bg:#ffffff;
@@ -20,7 +27,6 @@
     --ink:#182420;
     --muted:#5d6f66;
     --line:#e0ebe4;
-    --radius:16px;
     --maxw:560px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -90,18 +96,6 @@
   input:focus{outline:2px solid var(--green);outline-offset:1px}
   .formwrap .btn{background:#fff;color:var(--green-ink)}
   .formwrap .btn:hover{background:var(--bg-soft-2)}
-  .ok{display:none;background:#fff;color:var(--green-ink);border-radius:14px;padding:18px;text-align:center;font-weight:600}
-  .ok.show{display:block}
-
-  details{border:1px solid var(--line);border-radius:12px;padding:2px 16px;margin-bottom:10px}
-  details summary{
-    list-style:none;cursor:pointer;font-weight:650;font-size:.94rem;
-    padding:14px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;
-  }
-  details summary::-webkit-details-marker{display:none}
-  details summary::after{content:"+";color:var(--green-strong);font-size:1.2rem;font-weight:700;flex:none}
-  details[open] summary::after{content:"–"}
-  details p{font-size:.9rem;padding:0 0 16px}
 
   footer{background:var(--bg-soft);border-top:1px solid var(--line);padding:28px 0 120px;text-align:center}
   footer p{font-size:.78rem;color:var(--muted)}
@@ -131,8 +125,8 @@
 
 <section class="hero wrap">
   <span class="eyebrow">Bepul onlayn vebinar</span>
-  <h1>Yillar davom etgan <span>bo'g'im va suyak og'rig'i</span> bilan nima qilish kerak</h1>
-  <p class="lead">Sobir Said bilan aniq va halol suhbat — bo'rttirilgan va'dalarsiz.</p>
+  <h1><span>Bo'g'im va suyak salomatligi</span> haqida bepul vebinar</h1>
+  <p class="lead">Sobir Said bo'g'im-suyak tizimini asrash, harakat va profilaktika haqida sodda tilda gapiradi.</p>
 
   <div class="meta">
     <span class="chip">
@@ -149,26 +143,16 @@
     </span>
   </div>
 
-  <a class="btn" href="#royxat">Bepul joy band qilish</a>
-  <p class="note">Ro'yxatdan o'tish 30 soniya. To'lov yo'q.</p>
-</section>
-
-<section class="wrap">
-  <h2>Kim uchun</h2>
-  <ul class="list">
-    <li>Yillab tizza, son-chanoq yoki umurtqa og'rig'i bilan yashayotganlar</li>
-    <li>Ota-onasi yoki turmush o'rtog'iga g'amxo'rlik qilayotganlar</li>
-    <li>Ko'p davolangan, lekin natija qisqa muddatli bo'lganlar</li>
-  </ul>
+  <a class="btn" href="#royxat">Ro'yxatdan o'tish</a>
+  <p class="note">Ro'yxatdan o'tish 30 soniya. Ishtirok bepul.</p>
 </section>
 
 <section class="wrap">
   <h2>Vebinarda</h2>
   <ul class="list">
-    <li>Nega og'riq davolashdan keyin qaytib keladi</li>
-    <li>Qo'shimchani tanlashda nimaga e'tibor berish kerak</li>
-    <li>Oldindan to'lovsiz sinash va kafolat qanday ishlaydi</li>
-    <li>Haqiqiy tajribalar — bo'rttirilmagan</li>
+    <li>Bo'g'im va suyaklar qanday ishlaydi, yosh bilan nima o'zgaradi</li>
+    <li>Harakat, ovqatlanish va kundalik odatlarning roli</li>
+    <li>Qo'shimchalarni tanlashda nimaga e'tibor berish kerak</li>
     <li>Jonli savol-javob</li>
   </ul>
 </section>
@@ -187,41 +171,38 @@
     <form id="regForm">
       <input type="text" id="name" name="name" placeholder="Ism" autocomplete="name" required />
       <input type="tel" id="phone" name="phone" placeholder="Telefon raqam" autocomplete="tel" required />
-      <input type="text" id="city" name="city" placeholder="Shahar / viloyat" autocomplete="address-level1" required />
-      <button class="btn" type="submit">Joy band qilish</button>
+      <button class="btn" type="submit">Ro'yxatdan o'tish</button>
     </form>
-    <div class="ok" id="okMsg">Rahmat! Efirdan oldin havola yuboriladi.</div>
   </div>
-</section>
-
-<section class="wrap">
-  <h2>Savollar</h2>
-  <details><summary>Vebinar pullikmi?</summary><p>Yo'q, butunlay bepul.</p></details>
-  <details><summary>Belgilangan vaqtda qatnasha olmasam?</summary><p>Ro'yxatdan o'tganlarga vebinar yozuvi yuboriladi.</p></details>
-  <details><summary>Nimadir sotib olishim shartmi?</summary><p>Yo'q. Bu — ma'lumot beruvchi uchrashuv.</p></details>
 </section>
 
 <footer>
   <div class="wrap">
-    <p>Vebinar materiallari shifokor maslahati o'rnini bosmaydi.<br>© <span id="yr"></span> Sobir Said</p>
+    <p>Vebinar ma'lumot xarakteriga ega va shifokor maslahati o'rnini bosmaydi.<br>© <span id="yr"></span> Sobir Said</p>
   </div>
 </footer>
 
 <div class="sticky">
-  <div class="wrap"><a class="btn" href="#royxat">Bepul joy band qilish</a></div>
+  <div class="wrap"><a class="btn" href="#royxat">Ro'yxatdan o'tish</a></div>
 </div>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  var TG_LINK = 'https://t.me/+vJ73DS0sz101ZGIy';
   var form = document.getElementById('regForm');
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     if(!form.checkValidity()){ form.reportValidity(); return; }
-    var data = { name: form.name.value.trim(), phone: form.phone.value.trim(), city: form.city.value.trim() };
-    // TODO: backend / Telegram bot / Google Form endpoint'ini shu yerga ulang.
+
+    var data = { name: form.name.value.trim(), phone: form.phone.value.trim() };
     try { localStorage.setItem('reg_'+Date.now(), JSON.stringify(data)); } catch(_){}
-    form.style.display = 'none';
-    document.getElementById('okMsg').classList.add('show');
+
+    // Meta Pixel konversiya hodisasi (agar piksel o'rnatilgan bo'lsa)
+    try { if (window.fbq) fbq('track', 'Lead'); } catch(_){}
+
+    window.location.href = TG_LINK;
   });
 </script>
 
