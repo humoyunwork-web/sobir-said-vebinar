@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Argon vebinar — Bo'g'im va suyak og'rig'i bo'yicha bepul onlayn uchrashuv</title>
-<meta name="description" content="Yillab davom etgan bo'g'im, tizza va umurtqa og'rig'i bilan yashayotganlar uchun bepul onlayn vebinar. Navbatdagi davoni boshlashdan oldin bilib oling." />
-<meta property="og:title" content="Argon vebinar — Bo'g'im va suyak og'rig'i bo'yicha bepul onlayn uchrashuv" />
-<meta property="og:description" content="Nega davolar 2-3 oydan keyin ta'sirini yo'qotadi va qo'shimcha tanlashda nimaga e'tibor berish kerak — bepul vebinarda." />
+<title>Bo'g'im va suyak og'rig'i bo'yicha bepul vebinar — Sobir Said</title>
+<meta name="description" content="Yillar davom etgan bo'g'im va suyak og'rig'i bilan nima qilish kerak. Sobir Said bilan bepul onlayn vebinar — 7–8 sentabr, 20:00." />
+<meta property="og:title" content="Bo'g'im va suyak og'rig'i bo'yicha bepul vebinar" />
+<meta property="og:description" content="Sobir Said bilan bepul onlayn vebinar. 7–8 sentabr, 20:00." />
 <meta property="og:type" content="website" />
 <meta name="theme-color" content="#ffffff" />
 <style>
@@ -21,125 +21,81 @@
     --muted:#5d6f66;
     --line:#e0ebe4;
     --radius:16px;
-    --maxw:600px;
+    --maxw:560px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    color:var(--ink);
-    background:var(--bg);
-    line-height:1.55;
-    font-size:16px;
+    color:var(--ink);background:var(--bg);line-height:1.55;font-size:16px;
     -webkit-font-smoothing:antialiased;
   }
   img{max-width:100%;display:block}
   a{color:inherit}
   .wrap{max-width:var(--maxw);margin:0 auto;padding-left:20px;padding-right:20px}
-  section{padding:44px 0}
+  section{padding:40px 0}
   h1,h2,h3{line-height:1.25;letter-spacing:-0.01em;font-weight:700}
-  h1{font-size:1.7rem}
-  h2{font-size:1.3rem;margin-bottom:18px}
-  h3{font-size:1.02rem}
+  h1{font-size:1.65rem}
+  h2{font-size:1.25rem;margin-bottom:16px}
+  h3{font-size:1rem}
   p{color:var(--muted)}
+
   .eyebrow{
-    display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.08em;
+    display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.08em;
     text-transform:uppercase;color:var(--green-strong);
     background:var(--bg-soft-2);border-radius:999px;padding:6px 12px;margin-bottom:16px;
   }
 
-  /* header */
   .topbar{border-bottom:1px solid var(--line)}
-  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
   .brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:.02em}
-  .brand .dot{width:22px;height:22px;border-radius:7px;background:var(--green);display:inline-block}
+  .brand .dot{width:20px;height:20px;border-radius:6px;background:var(--green)}
   .topbar a.mini{font-size:.85rem;font-weight:600;color:var(--green-strong);text-decoration:none}
 
-  /* hero */
-  .hero{padding-top:40px}
   .hero h1 span{color:var(--green-strong)}
-  .hero p.lead{margin-top:14px;font-size:1.02rem}
-  .meta{
-    margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;
-  }
+  .hero p.lead{margin-top:12px}
+  .meta{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
   .chip{
     display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;color:var(--ink);
     background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px;
   }
   .chip svg{flex:none}
+
   .btn{
     display:block;width:100%;text-align:center;text-decoration:none;
     background:var(--green);color:#fff;font-weight:700;font-size:1rem;
-    padding:16px 20px;border-radius:14px;border:none;cursor:pointer;
-    transition:background .15s ease;
+    padding:16px 20px;border-radius:14px;border:none;cursor:pointer;transition:background .15s ease;
   }
   .btn:hover{background:var(--green-strong)}
-  .btn.secondary{background:#fff;color:var(--green-strong);border:1.5px solid var(--green)}
-  .btn.secondary:hover{background:var(--bg-soft)}
-  .hero .btn{margin-top:24px}
-  .hero .note{margin-top:10px;font-size:.83rem;text-align:center}
+  .hero .btn{margin-top:22px}
+  .hero .note{margin-top:10px;font-size:.82rem;text-align:center}
 
-  /* generic list cards */
-  .cards{display:grid;gap:12px;margin-top:4px}
-  .card{
-    background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:18px;
+  ul.list{list-style:none;display:grid;gap:10px}
+  ul.list li{position:relative;padding-left:26px;font-size:.96rem;color:var(--ink)}
+  ul.list li::before{
+    content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:3px;background:var(--green);
   }
-  .card h3{margin-bottom:6px}
-  .card p{font-size:.92rem}
-  .soft{background:var(--bg-soft)}
 
-  /* agenda */
-  ol.agenda{list-style:none;counter-reset:a;display:grid;gap:14px}
-  ol.agenda li{position:relative;padding-left:44px;counter-increment:a}
-  ol.agenda li::before{
-    content:counter(a);position:absolute;left:0;top:0;
-    width:30px;height:30px;border-radius:9px;background:var(--bg-soft-2);
-    color:var(--green-strong);font-weight:700;font-size:.9rem;
-    display:flex;align-items:center;justify-content:center;
-  }
-  ol.agenda strong{display:block;color:var(--ink);font-weight:650}
-  ol.agenda span{font-size:.9rem;color:var(--muted)}
-
-  /* speaker */
-  .speaker{background:var(--bg-soft);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
-  .speaker img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 22%}
-  .speaker .body{padding:18px}
-  .speaker h3{margin-bottom:2px}
-  .speaker .role{font-size:.85rem;color:var(--green-strong);font-weight:600;margin-bottom:8px}
+  .speaker img{width:100%;height:auto;max-height:440px;border-radius:18px;object-fit:cover;object-position:center 15%;margin-bottom:14px}
+  .speaker h3{font-size:1.15rem;margin-bottom:2px}
   .speaker p{font-size:.92rem}
 
-  /* about */
-  .about-grid{display:grid;gap:10px;margin-top:4px}
-  .fact{display:flex;gap:12px;align-items:flex-start;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:14px}
-  .fact .k{font-weight:700;color:var(--green-strong);font-size:.9rem;white-space:nowrap}
-  .fact .v{font-size:.92rem;color:var(--muted)}
-
-  /* form */
-  .formwrap{background:var(--green-ink);border-radius:20px;padding:26px 20px;color:#fff}
-  .formwrap h2{color:#fff}
-  .formwrap p.sub{color:#cfe6d9;font-size:.92rem;margin-bottom:18px}
+  .formwrap{background:var(--green-ink);border-radius:20px;padding:24px 20px;color:#fff}
+  .formwrap h2{color:#fff;margin-bottom:14px}
   form{display:grid;gap:12px}
-  label{font-size:.85rem;font-weight:600;color:#e7f4ec;display:block;margin-bottom:6px}
   input[type=text],input[type=tel]{
     width:100%;font-size:1rem;padding:14px;border-radius:12px;border:1px solid #2f6446;
     background:#fff;color:var(--ink);
   }
   input:focus{outline:2px solid var(--green);outline-offset:1px}
-  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.8rem;color:#cfe6d9;font-weight:400}
-  .consent input{margin-top:3px;flex:none;width:16px;height:16px;accent-color:var(--green)}
   .formwrap .btn{background:#fff;color:var(--green-ink)}
   .formwrap .btn:hover{background:var(--bg-soft-2)}
-  .ok{
-    display:none;background:#fff;color:var(--green-ink);border-radius:14px;padding:20px;
-    text-align:center;font-weight:600;
-  }
+  .ok{display:none;background:#fff;color:var(--green-ink);border-radius:14px;padding:18px;text-align:center;font-weight:600}
   .ok.show{display:block}
-  .ok small{display:block;font-weight:400;color:var(--muted);margin-top:6px}
 
-  /* faq */
-  details{border:1px solid var(--line);border-radius:12px;padding:2px 16px;margin-bottom:10px;background:var(--bg)}
+  details{border:1px solid var(--line);border-radius:12px;padding:2px 16px;margin-bottom:10px}
   details summary{
-    list-style:none;cursor:pointer;font-weight:650;font-size:.95rem;
+    list-style:none;cursor:pointer;font-weight:650;font-size:.94rem;
     padding:14px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;
   }
   details summary::-webkit-details-marker{display:none}
@@ -147,12 +103,9 @@
   details[open] summary::after{content:"–"}
   details p{font-size:.9rem;padding:0 0 16px}
 
-  /* footer */
-  footer{background:var(--bg-soft);border-top:1px solid var(--line);padding:32px 0 120px}
-  footer p{font-size:.78rem;color:var(--muted);line-height:1.6}
-  footer .brand{margin-bottom:12px;font-size:.95rem}
+  footer{background:var(--bg-soft);border-top:1px solid var(--line);padding:28px 0 120px;text-align:center}
+  footer p{font-size:.78rem;color:var(--muted)}
 
-  /* sticky mobile cta */
   .sticky{
     position:fixed;left:0;right:0;bottom:0;z-index:50;
     background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
@@ -161,14 +114,9 @@
   .sticky .wrap{padding:0}
   .sticky .btn{padding:14px}
 
-  @media(min-width:680px){
-    h1{font-size:2.2rem}
-    h2{font-size:1.6rem}
-    .hero .btn{max-width:320px}
-    .cards{grid-template-columns:1fr 1fr}
-    .btn.inline{display:inline-block;width:auto;padding-left:36px;padding-right:36px}
-    .speaker{display:grid;grid-template-columns:220px 1fr}
-    .speaker img{height:100%;aspect-ratio:auto}
+  @media(min-width:640px){
+    h1{font-size:2rem}
+    .hero .btn{max-width:300px}
   }
 </style>
 </head>
@@ -176,177 +124,104 @@
 
 <header class="topbar">
   <div class="wrap">
-    <span class="brand"><span class="dot"></span>ARGON</span>
-    <a class="mini" href="#ro'yxat">Ro'yxatdan o'tish</a>
+    <span class="brand"><span class="dot"></span>SOBIR SAID</span>
+    <a class="mini" href="#royxat">Ro'yxatdan o'tish</a>
   </div>
 </header>
 
 <section class="hero wrap">
   <span class="eyebrow">Bepul onlayn vebinar</span>
-  <h1>Yillab davom etgan <span>bo'g'im va suyak og'rig'i</span> — navbatdagi davoni boshlashdan oldin</h1>
-  <p class="lead">Nega ukol, dori va fizioterapiya ko'pincha 2–3 oydan keyin ta'sirini yo'qotadi, va bo'g'im uchun qo'shimcha tanlashda aslida nimaga e'tibor berish kerak. Bo'rttirilgan va'dalarsiz, aniq ma'lumot.</p>
+  <h1>Yillar davom etgan <span>bo'g'im va suyak og'rig'i</span> bilan nima qilish kerak</h1>
+  <p class="lead">Sobir Said bilan aniq va halol suhbat — bo'rttirilgan va'dalarsiz.</p>
 
   <div class="meta">
     <span class="chip">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a8a4f" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
-      Sana: <b>[kun, oy — masalan 15-sentabr]</b>
+      7–8 sentabr
     </span>
     <span class="chip">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a8a4f" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-      Vaqti: <b>19:00</b> · ~60 daqiqa
+      20:00
     </span>
     <span class="chip">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a8a4f" stroke-width="2"><path d="M4 5h16v12H4z"/><path d="M2 21h20"/></svg>
-      Onlayn efir · yozuvi beriladi
+      Onlayn · yozuvi beriladi
     </span>
   </div>
 
-  <a class="btn" href="#ro'yxat">Bepul joy band qilish</a>
-  <p class="note">Ro'yxatdan o'tish 30 soniya oladi. Hech qanday to'lov talab qilinmaydi.</p>
+  <a class="btn" href="#royxat">Bepul joy band qilish</a>
+  <p class="note">Ro'yxatdan o'tish 30 soniya. To'lov yo'q.</p>
 </section>
 
 <section class="wrap">
-  <h2>Bu vebinar kimlar uchun</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Uzoq yillik bemor</h3>
-      <p>Tizza, son-chanoq (koksartroz) yoki umurtqa og'rig'i bilan 5, 10, hatto 20 yildan beri yashayotganlar. Ko'p davolangan, natija qisqa muddatli bo'lgan.</p>
-    </div>
-    <div class="card">
-      <h3>G'amxo'r farzand yoki yaqin</h3>
-      <p>Ota-onasi, qaynona-qaynotasi yoki turmush o'rtog'ining og'rig'ini ko'rib qiynalayotgan, qaror qabul qilishga yordam beradiganlar.</p>
-    </div>
-    <div class="card">
-      <h3>Hammasini tekshiradiganlar</h3>
-      <p>Sotib olishdan oldin tarkib, doza, sertifikat va ishlab chiqaruvchini o'rganadigan, aniq raqam va dalil talab qiladiganlar.</p>
-    </div>
-    <div class="card">
-      <h3>Argonni avval sinaganlar</h3>
-      <p>Argon yoki BioArgonni ilgari ishlatgan, natijani to'g'ri baholash va keyingi qadamni tushunish istagida bo'lganlar.</p>
-    </div>
-  </div>
+  <h2>Kim uchun</h2>
+  <ul class="list">
+    <li>Yillab tizza, son-chanoq yoki umurtqa og'rig'i bilan yashayotganlar</li>
+    <li>Ota-onasi yoki turmush o'rtog'iga g'amxo'rlik qilayotganlar</li>
+    <li>Ko'p davolangan, lekin natija qisqa muddatli bo'lganlar</li>
+  </ul>
 </section>
 
 <section class="wrap">
-  <h2>Vebinarda nimalarni bilib olasiz</h2>
-  <ol class="agenda">
-    <li><strong>Nega davolar vaqt o'tib ta'sirini yo'qotadi</strong><span>Surunkali artroz, koksartroz va osteoxondrozning asl mexanizmi — nima uchun og'riq qaytib keladi.</span></li>
-    <li><strong>B.F.Q. va dori o'rtasidagi farq</strong><span>Argon nima va nima emas. Qo'shimchadan nimani kutish mumkin, nimani kutmaslik kerak.</span></li>
-    <li><strong>Qo'shimcha tanlashda 5 ta tekshiruv savoli</strong><span>Tarkib va doza, sertifikat, ishlab chiqaruvchi, kafolat shartlari — nimani so'rash kerak.</span></li>
-    <li><strong>"Avval qo'lga olib ko'rish, keyin to'lash"</strong><span>Oldindan to'lovsiz sinash va kafolat protsedurasi aslida qanday ishlaydi.</span></li>
-    <li><strong>Haqiqiy mijoz tajribalari</strong><span>Bo'rttirilmagan, real natijalar — foyda ko'rgan va ko'rmagan holatlar.</span></li>
-    <li><strong>Jonli savol-javob</strong><span>O'z holatingiz bo'yicha savol berish imkoniyati.</span></li>
-  </ol>
+  <h2>Vebinarda</h2>
+  <ul class="list">
+    <li>Nega og'riq davolashdan keyin qaytib keladi</li>
+    <li>Qo'shimchani tanlashda nimaga e'tibor berish kerak</li>
+    <li>Oldindan to'lovsiz sinash va kafolat qanday ishlaydi</li>
+    <li>Haqiqiy tajribalar — bo'rttirilmagan</li>
+    <li>Jonli savol-javob</li>
+  </ul>
 </section>
 
 <section class="wrap">
-  <h2>Vebinarni kim olib boradi</h2>
   <div class="speaker">
-    <img src="speaker.jpg" alt="Vebinar spikeri" />
-    <div class="body">
-      <!-- Spiker ismini shu yerga qo'shing -->
-      <h3>Argon mutaxassisi</h3>
-      <div class="role">Mahsulot bo'yicha bosh maslahatchi</div>
-      <p>Suyak-bo'g'im-mushak muammolari, Argon kapsula va surtmasining tarkibi hamda qo'llash tartibi bo'yicha maslahat beradi. Vebinarda mahsulot faqat rasmiy hujjatga tayangan holda tushuntiriladi.</p>
-    </div>
+    <img src="speaker.jpg" alt="Sobir Said" />
+    <h3>Sobir Said</h3>
+    <p>Vebinarni olib boradi va savollarga javob beradi.</p>
   </div>
 </section>
 
-<section class="wrap">
-  <h2>Argon haqida qisqacha</h2>
-  <div class="about-grid">
-    <div class="fact"><span class="k">Nima</span><span class="v">Aurus-Pharm MCHJ ishlab chiqargan biologik faol qo'shimcha (B.F.Q.). Dori emas.</span></div>
-    <div class="fact"><span class="k">Kimga</span><span class="v">Suyak, bo'g'im va mushak-skelet tizimi muammolari bo'lgan kattalar uchun — ayniqsa surunkali holatlarda.</span></div>
-    <div class="fact"><span class="k">Shakllari</span><span class="v">Kapsula (ichkaridan ta'sir) va surtma (muammoli joyga) — birga ishlashga mo'ljallangan.</span></div>
-    <div class="fact"><span class="k">Kurs</span><span class="v">Rasmiy tavsiya — 1–3 oy, holatga qarab individual.</span></div>
-    <div class="fact"><span class="k">Kimga emas</span><span class="v">Homilador va emizikli ayollar, 18 yoshgacha bolalar uchun tavsiya etilmaydi.</span></div>
-  </div>
-</section>
-
-<section class="wrap" id="ro'yxat">
+<section class="wrap" id="royxat">
   <div class="formwrap">
-    <h2>Vebinarga ro'yxatdan o'tish</h2>
-    <p class="sub">Ma'lumotlaringizni qoldiring — efir havolasi va eslatma SMS/Telegram orqali yuboriladi.</p>
-
+    <h2>Ro'yxatdan o'tish</h2>
     <form id="regForm">
-      <div>
-        <label for="name">Ism familiya</label>
-        <input type="text" id="name" name="name" autocomplete="name" required />
-      </div>
-      <div>
-        <label for="phone">Telefon raqam</label>
-        <input type="tel" id="phone" name="phone" placeholder="+998 __ ___ __ __" autocomplete="tel" required />
-      </div>
-      <div>
-        <label for="city">Shahar / viloyat</label>
-        <input type="text" id="city" name="city" autocomplete="address-level1" required />
-      </div>
-      <label class="consent">
-        <input type="checkbox" id="agree" required />
-        <span>Shaxsiy ma'lumotlarimni vebinar bo'yicha aloqa uchun ishlatishga roziman.</span>
-      </label>
-      <button class="btn" type="submit">Ro'yxatdan o'tish</button>
+      <input type="text" id="name" name="name" placeholder="Ism" autocomplete="name" required />
+      <input type="tel" id="phone" name="phone" placeholder="Telefon raqam" autocomplete="tel" required />
+      <input type="text" id="city" name="city" placeholder="Shahar / viloyat" autocomplete="address-level1" required />
+      <button class="btn" type="submit">Joy band qilish</button>
     </form>
-
-    <div class="ok" id="okMsg">
-      Rahmat! Ro'yxatdan o'tdingiz.
-      <small>Efirdan oldin havola va eslatma yuboriladi. Savollaringiz bo'lsa Telegram orqali yozing.</small>
-    </div>
+    <div class="ok" id="okMsg">Rahmat! Efirdan oldin havola yuboriladi.</div>
   </div>
-  <a class="btn secondary" style="margin-top:12px" href="https://t.me/" target="_blank" rel="noopener">Telegram orqali savol berish</a>
 </section>
 
 <section class="wrap">
-  <h2>Ko'p so'raladigan savollar</h2>
-
-  <details><summary>Vebinar pullikmi?</summary><p>Yo'q, vebinar butunlay bepul. Ro'yxatdan o'tish uchun ham hech qanday to'lov talab qilinmaydi.</p></details>
-  <details><summary>Belgilangan vaqtda qatnasha olmasam-chi?</summary><p>Ro'yxatdan o'tgan hammaga vebinar yozuvi havolasi yuboriladi — keyinroq ko'rishingiz mumkin.</p></details>
-  <details><summary>Argon dorimi?</summary><p>Yo'q. Argon — biologik faol qo'shimcha (B.F.Q.), dori emas. U suyak, bo'g'im va mushak-skelet muammolari uchun mo'ljallangan. Insult, rak, diabet, jigar yoki buyrak kasalliklari rasmiy ro'yxatga kirmaydi.</p></details>
-  <details><summary>Vebinardan keyin biror narsa sotib olishim shartmi?</summary><p>Yo'q. Bu — ma'lumot beruvchi uchrashuv. Kurs narxlari va bo'lib to'lash imkoniyatlari haqida so'rasangiz, alohida tushuntiriladi.</p></details>
-  <details><summary>Mahsulotni oldindan to'lovsiz sinab ko'rsa bo'ladimi?</summary><p>Kafolat va "qo'lga olib ko'rib, keyin to'lash" sharti qanday ishlashi vebinarda batafsil ko'rsatiladi.</p></details>
+  <h2>Savollar</h2>
+  <details><summary>Vebinar pullikmi?</summary><p>Yo'q, butunlay bepul.</p></details>
+  <details><summary>Belgilangan vaqtda qatnasha olmasam?</summary><p>Ro'yxatdan o'tganlarga vebinar yozuvi yuboriladi.</p></details>
+  <details><summary>Nimadir sotib olishim shartmi?</summary><p>Yo'q. Bu — ma'lumot beruvchi uchrashuv.</p></details>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="brand"><span class="dot" style="width:18px;height:18px"></span>ARGON</div>
-    <p>
-      Argon — Aurus-Pharm MCHJ tomonidan ishlab chiqarilgan biologik faol qo'shimcha (B.F.Q.), dori emas.
-      Homilador va emizikli ayollar hamda 18 yoshgacha bolalar uchun tavsiya etilmaydi.
-      Tarkibiy qismlarga allergiya bo'lsa yoki boshqa dori vositalari qabul qilinayotgan bo'lsa, qo'llashdan oldin shifokor bilan maslahatlashing.
-      Vebinar materiallari tashxis yoki davolash tayinlash o'rnini bosmaydi.
-      <br><br>
-      Sertifikat: Halol No. UQ-2024111820 · Ishlab chiqaruvchi: Toshkent shahri, Shayxontohur tumani.
-      <br>
-      © <span id="yr"></span> Argon. Barcha huquqlar himoyalangan.
-    </p>
+    <p>Vebinar materiallari shifokor maslahati o'rnini bosmaydi.<br>© <span id="yr"></span> Sobir Said</p>
   </div>
 </footer>
 
 <div class="sticky">
-  <div class="wrap"><a class="btn" href="#ro'yxat">Bepul joy band qilish</a></div>
+  <div class="wrap"><a class="btn" href="#royxat">Bepul joy band qilish</a></div>
 </div>
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-
   var form = document.getElementById('regForm');
   form.addEventListener('submit', function(e){
     e.preventDefault();
     if(!form.checkValidity()){ form.reportValidity(); return; }
-
-    var data = {
-      name: form.name.value.trim(),
-      phone: form.phone.value.trim(),
-      city: form.city.value.trim()
-    };
-
-    // TODO: bu yerga o'z backend/Telegram bot/Google Form havolangizni ulang.
-    // Hozircha ma'lumot lokal saqlanadi va tashakkur xabari ko'rsatiladi.
-    try { localStorage.setItem('argon_reg_'+Date.now(), JSON.stringify(data)); } catch(_){}
-
+    var data = { name: form.name.value.trim(), phone: form.phone.value.trim(), city: form.city.value.trim() };
+    // TODO: backend / Telegram bot / Google Form endpoint'ini shu yerga ulang.
+    try { localStorage.setItem('reg_'+Date.now(), JSON.stringify(data)); } catch(_){}
     form.style.display = 'none';
     document.getElementById('okMsg').classList.add('show');
-    document.getElementById('okMsg').scrollIntoView({behavior:'smooth', block:'center'});
   });
 </script>
 
