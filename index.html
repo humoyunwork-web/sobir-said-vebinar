@@ -50,11 +50,11 @@
   h1 span{color:var(--green-strong)}
 
   .imgwrap{
-    display:block;width:-moz-fit-content;width:fit-content;max-width:100%;
     margin:16px auto;background:var(--mint);border-radius:20px;padding:10px;
+    max-width:360px;
   }
   .imgwrap img{
-    display:block;width:auto;max-width:100%;height:auto;max-height:44vh;border-radius:14px;
+    display:block;width:100%;height:auto;border-radius:14px;
   }
 
   /* Sobir Said haqida */
@@ -124,6 +124,7 @@
   @media(min-width:640px){
     h1{font-size:1.9rem}
     .cta{max-width:320px;margin-left:auto;margin-right:auto}
+    .imgwrap{max-width:440px}
   }
 </style>
 </head>
@@ -160,10 +161,10 @@
 
   <div class="formwrap">
     <h3>Ro'yxatdan o'tish</h3>
-    <p class="hint">Ism va telefon raqamingizni qoldiring — efir havolasi yuboriladi.</p>
+    <p class="hint">Vebinar kanaliga qo'shilish uchun ma'lumotlaringizni kiriting.</p>
     <form class="regForm">
-      <input type="text" name="name" placeholder="Ism" autocomplete="name" required />
-      <input type="tel" name="phone" placeholder="Telefon raqam" autocomplete="tel" required />
+      <input type="text" name="name" placeholder="Ismingiz" autocomplete="name" required />
+      <input type="tel" name="phone" placeholder="Telefon raqamingiz" autocomplete="tel" required />
       <button type="submit">Ro'yxatdan o'tish</button>
     </form>
   </div>
@@ -178,10 +179,10 @@
   <div class="modal-card" role="dialog" aria-modal="true" aria-label="Ro'yxatdan o'tish">
     <button class="modal-close" type="button" id="modalClose" aria-label="Yopish">✕</button>
     <h3>Ro'yxatdan o'tish</h3>
-    <p class="hint">Ism va telefon raqamingizni qoldiring — efir havolasi yuboriladi.</p>
+    <p class="hint">Vebinar kanaliga qo'shilish uchun ma'lumotlaringizni kiriting.</p>
     <form class="regForm">
-      <input type="text" name="name" placeholder="Ism" autocomplete="name" required />
-      <input type="tel" name="phone" placeholder="Telefon raqam" autocomplete="tel" required />
+      <input type="text" name="name" placeholder="Ismingiz" autocomplete="name" required />
+      <input type="tel" name="phone" placeholder="Telefon raqamingiz" autocomplete="tel" required />
       <button type="submit">Ro'yxatdan o'tish</button>
     </form>
   </div>
