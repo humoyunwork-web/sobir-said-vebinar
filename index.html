@@ -57,22 +57,34 @@
     display:block;width:100%;height:auto;border-radius:14px;
   }
 
-  /* Sobir Said haqida */
-  .bio{border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(18,112,64,.07)}
+  /* Sobir Said haqida — endi oddiy karta, tugmaga o'xshamaydi */
+  .bio{border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 4px 16px rgba(18,112,64,.05)}
   .bio .name{
-    background:var(--green);color:#fff;font-weight:700;font-size:1.05rem;
-    text-align:center;padding:12px 16px;
+    font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:10px;
+    padding-left:12px;border-left:4px solid var(--green);
   }
-  .bio .body{padding:16px}
+  .bio .body{padding:0}
   .bio .body p{font-size:.92rem;color:var(--muted)}
   .bio .body b{color:var(--ink)}
 
+  /* CTA tugma — aniq ajralib turadi */
   .cta{
-    display:block;width:100%;text-align:center;background:var(--green);color:#fff;
-    font-weight:700;font-size:1.02rem;padding:16px 20px;border-radius:14px;border:none;
-    cursor:pointer;transition:background .15s ease;margin:18px 0;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;text-align:center;background:var(--green);color:#fff;
+    font-weight:800;font-size:1.08rem;letter-spacing:.01em;
+    padding:19px 22px;border-radius:16px;border:none;cursor:pointer;
+    box-shadow:0 10px 26px rgba(26,138,79,.38);
+    transition:transform .12s ease, box-shadow .12s ease, background .15s ease;
+    margin:24px 0;animation:ctaPulse 2.4s ease-in-out infinite;
   }
-  .cta:hover{background:var(--green-strong)}
+  .cta::after{content:"→";font-size:1.15em;line-height:1}
+  .cta:hover{background:var(--green-strong);transform:translateY(-2px);box-shadow:0 16px 34px rgba(26,138,79,.5)}
+  .cta:active{transform:translateY(0)}
+  @keyframes ctaPulse{
+    0%,100%{box-shadow:0 10px 26px rgba(26,138,79,.38)}
+    50%{box-shadow:0 12px 32px rgba(26,138,79,.6)}
+  }
+  @media(prefers-reduced-motion:reduce){ .cta{animation:none} }
 
   h2{font-size:1.15rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px}
   ul.list{list-style:none;display:grid;gap:8px;margin-bottom:20px}
