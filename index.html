@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Bo'g'im va suyak salomatligi haqida bepul vebinar — Sobir Said</title>
-<meta name="description" content="Bo'g'im-suyak tizimi, harakat va profilaktika haqida bepul onlayn vebinar. 7–8 sentyabr, 20:00." />
+<meta name="description" content="Bo'g'im-suyak tizimi, harakat va profilaktika haqida bepul onlayn vebinar. Sobir Said bilan — 7–8 sentyabr, 20:00." />
 <meta property="og:title" content="Bo'g'im va suyak salomatligi haqida bepul vebinar" />
-<meta property="og:description" content="Bepul onlayn vebinar. 7–8 sentyabr, 20:00." />
+<meta property="og:description" content="Sobir Said bilan bepul onlayn vebinar. 7–8 sentyabr, 20:00." />
 <meta property="og:type" content="website" />
 <meta name="theme-color" content="#ffffff" />
 
@@ -19,24 +19,26 @@
   :root{
     --bg:#ffffff;
     --bg-soft:#f2f8f4;
+    --mint:#d9f2e8;
     --green:#1a8a4f;
     --green-strong:#127040;
     --green-ink:#0f3d24;
     --ink:#182420;
     --muted:#5d6f66;
     --line:#e0ebe4;
-    --maxw:540px;
+    --maxw:560px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    color:var(--ink);background:var(--bg);line-height:1.4;font-size:16px;
+    color:var(--ink);background:var(--bg);line-height:1.45;font-size:16px;
     -webkit-font-smoothing:antialiased;
   }
+  body.lock{overflow:hidden}
   img{max-width:100%;display:block}
 
-  .page{max-width:var(--maxw);margin:0 auto;padding:16px 20px 24px}
+  .page{max-width:var(--maxw);margin:0 auto;padding:18px 20px 8px}
 
   .date{
     display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.03em;
@@ -44,79 +46,160 @@
     border-radius:999px;padding:6px 12px;margin-bottom:12px;
   }
 
-  h1{
-    font-size:1.45rem;line-height:1.2;letter-spacing:-0.01em;font-weight:700;
-  }
+  h1{font-size:1.55rem;line-height:1.22;letter-spacing:-0.01em;font-weight:700}
   h1 span{color:var(--green-strong)}
+  .sub{margin-top:8px;font-size:.95rem;color:var(--muted)}
 
-  .hero-img{
-    display:block;width:auto;max-width:100%;height:auto;max-height:42vh;
-    border-radius:16px;margin:10px auto;
+  .imgwrap{
+    background:var(--mint);border-radius:20px;padding:12px;margin:16px 0;
+    display:flex;justify-content:center;
+  }
+  .imgwrap img{
+    width:auto;max-width:100%;height:auto;max-height:46vh;border-radius:14px;
   }
 
-  h2{
-    font-size:.98rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:6px;
+  /* Sobir Said haqida */
+  .bio{border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(18,112,64,.07)}
+  .bio .name{
+    background:var(--green);color:#fff;font-weight:700;font-size:1.05rem;
+    text-align:center;padding:12px 16px;
   }
+  .bio .body{padding:16px}
+  .bio .body p{font-size:.92rem;color:var(--muted)}
+  .bio .body b{color:var(--ink)}
 
-  ul.list{list-style:none;display:grid;gap:5px;margin-bottom:14px}
-  ul.list li{position:relative;padding-left:20px;font-size:.875rem;line-height:1.35;color:var(--ink)}
+  .cta{
+    display:block;width:100%;text-align:center;background:var(--green);color:#fff;
+    font-weight:700;font-size:1.02rem;padding:16px 20px;border-radius:14px;border:none;
+    cursor:pointer;transition:background .15s ease;margin:18px 0;
+  }
+  .cta:hover{background:var(--green-strong)}
+
+  h2{font-size:1.15rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px}
+  ul.list{list-style:none;display:grid;gap:8px}
+  ul.list li{position:relative;padding-left:24px;font-size:.94rem;color:var(--ink)}
   ul.list li::before{
-    content:"";position:absolute;left:0;top:.45em;width:7px;height:7px;border-radius:2px;background:var(--green);
+    content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:3px;background:var(--green);
   }
 
-  .formwrap{background:var(--green-ink);border-radius:16px;padding:14px}
-  form{display:grid;gap:9px}
+  footer{padding:20px;text-align:center}
+  footer p{font-size:.74rem;color:var(--muted);line-height:1.5}
+
+  /* Modal */
+  .modal{
+    position:fixed;inset:0;background:rgba(15,61,36,.55);z-index:100;
+    display:none;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal.open{display:flex}
+  .modal-card{
+    background:#fff;border-radius:20px;padding:24px 20px 20px;max-width:380px;width:100%;
+    position:relative;box-shadow:0 20px 50px rgba(0,0,0,.25);
+  }
+  .modal-card h3{font-size:1.15rem;font-weight:700;margin-bottom:4px}
+  .modal-card p.hint{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+  .modal-close{
+    position:absolute;top:10px;right:12px;width:32px;height:32px;border:none;background:var(--bg-soft);
+    border-radius:10px;font-size:1.1rem;line-height:1;color:var(--muted);cursor:pointer;
+  }
+  .modal-close:hover{background:var(--mint)}
+  form{display:grid;gap:10px}
   input[type=text],input[type=tel]{
-    width:100%;font-size:1rem;padding:11px 14px;border-radius:11px;border:1px solid #2f6446;
+    width:100%;font-size:1rem;padding:13px 14px;border-radius:11px;border:1px solid var(--line);
     background:#fff;color:var(--ink);
   }
   input:focus{outline:2px solid var(--green);outline-offset:1px}
-  .btn{
-    width:100%;text-align:center;background:#fff;color:var(--green-ink);
-    font-weight:700;font-size:1rem;padding:13px 16px;border-radius:11px;border:none;cursor:pointer;
-    transition:background .15s ease;
+  form button{
+    width:100%;background:var(--green);color:#fff;font-weight:700;font-size:1rem;
+    padding:14px 16px;border-radius:11px;border:none;cursor:pointer;transition:background .15s ease;
   }
-  .btn:hover{background:var(--bg-soft)}
+  form button:hover{background:var(--green-strong)}
 
-  footer{padding:16px 20px 28px;text-align:center}
-  footer p{font-size:.72rem;color:var(--muted);line-height:1.5}
+  @media(min-width:640px){
+    h1{font-size:1.9rem}
+    .cta{max-width:320px;margin-left:auto;margin-right:auto}
+  }
 </style>
 </head>
 <body>
 
 <main class="page">
+
   <span class="date">7–8 sentyabr · 20:00</span>
-  <h1><span>Bo'g'im va suyak salomatligi</span> haqida bepul vebinar</h1>
+  <h1><span>Bo'g'im va suyaklar</span> yillar o'tib nega zaiflashadi — va buni qanday sekinlashtirish mumkin</h1>
+  <p class="sub">Sobir Said bilan bepul onlayn vebinar.</p>
 
-  <img class="hero-img" src="speaker.jpg" alt="Sobir Said" />
+  <div class="imgwrap">
+    <img src="speaker.jpg" alt="Sobir Said" />
+  </div>
 
-  <h2>Vebinarda quyidagi mavzularda gaplashamiz</h2>
+  <div class="bio">
+    <div class="name">Sobir Said</div>
+    <div class="body">
+      <p><b>«Sunna Med»</b> klinikalar tarmog'i asoschisi. Jamoasi bilan birga bugungacha
+      <b>30 000 dan ziyod</b> insonni tabiiy usullar va sharq tabobati yordamida turli
+      kasalliklardan davolashda ko'maklashgan.</p>
+    </div>
+  </div>
+
+  <button class="cta" type="button" data-open>Ro'yxatdan o'tish</button>
+
+  <h2>Vebinarda nimalar bo'ladi</h2>
   <ul class="list">
-    <li>Bo'g'im va suyaklar qanday ishlaydi, yosh bilan nima o'zgaradi</li>
-    <li>Harakat, ovqatlanish va kundalik odatlarning roli</li>
-    <li>Qo'shimchalarni tanlashda nimaga e'tibor berish kerak</li>
+    <li>Bo'g'im va suyaklar qanday tuzilgan va yosh bilan ularda nima o'zgaradi</li>
+    <li>Harakat, ovqatlanish va vazn bo'g'imlarga qanday ta'sir qiladi</li>
+    <li>Kundalik odatlar orqali bo'g'imlarni qo'llab-quvvatlash</li>
+    <li>Qo'shimcha va vositalarni tanlashda nimaga e'tibor berish kerak</li>
     <li>Jonli savol-javob</li>
   </ul>
 
-  <div class="formwrap">
-    <form id="regForm">
-      <input type="text" id="name" name="name" placeholder="Ism" autocomplete="name" required />
-      <input type="tel" id="phone" name="phone" placeholder="Telefon raqam" autocomplete="tel" required />
-      <button class="btn" type="submit">Ro'yxatdan o'tish</button>
-    </form>
-  </div>
+  <button class="cta" type="button" data-open>Ro'yxatdan o'tish</button>
+
 </main>
 
 <footer>
   <p>Vebinar ma'lumot xarakteriga ega va shifokor maslahati o'rnini bosmaydi. © <span id="yr"></span> Sobir Said</p>
 </footer>
 
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Ro'yxatdan o'tish">
+    <button class="modal-close" type="button" id="modalClose" aria-label="Yopish">✕</button>
+    <h3>Ro'yxatdan o'tish</h3>
+    <p class="hint">Ism va telefon raqamingizni qoldiring — efir havolasi yuboriladi.</p>
+    <form id="regForm">
+      <input type="text" id="name" name="name" placeholder="Ism" autocomplete="name" required />
+      <input type="tel" id="phone" name="phone" placeholder="Telefon raqam" autocomplete="tel" required />
+      <button type="submit">Ro'yxatdan o'tish</button>
+    </form>
+  </div>
+</div>
+
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   var TG_LINK = 'https://t.me/+vJ73DS0sz101ZGIy';
-  var form = document.getElementById('regForm');
+  var modal = document.getElementById('modal');
+  var body = document.body;
 
+  function openModal(){
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    body.classList.add('lock');
+    setTimeout(function(){ var n=document.getElementById('name'); if(n) n.focus(); }, 50);
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    body.classList.remove('lock');
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-open]'), function(b){
+    b.addEventListener('click', openModal);
+  });
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+
+  var form = document.getElementById('regForm');
   form.addEventListener('submit', function(e){
     e.preventDefault();
     if(!form.checkValidity()){ form.reportValidity(); return; }
