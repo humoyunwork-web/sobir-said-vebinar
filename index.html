@@ -39,27 +39,24 @@
   img{max-width:100%;display:block}
   a{color:inherit}
   .wrap{max-width:var(--maxw);margin:0 auto;padding-left:20px;padding-right:20px}
-  section{padding:40px 0}
+  section{padding:36px 0}
+  .hero{padding-top:32px}
   h1,h2,h3{line-height:1.25;letter-spacing:-0.01em;font-weight:700}
   h1{font-size:1.65rem}
   h2{font-size:1.25rem;margin-bottom:16px}
-  h3{font-size:1rem}
+  h3{font-size:1.05rem}
   p{color:var(--muted)}
 
-  .eyebrow{
-    display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.08em;
-    text-transform:uppercase;color:var(--green-strong);
-    background:var(--bg-soft-2);border-radius:999px;padding:6px 12px;margin-bottom:16px;
-  }
-
-  .topbar{border-bottom:1px solid var(--line)}
-  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-  .brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:.02em}
-  .brand .dot{width:20px;height:20px;border-radius:6px;background:var(--green)}
-  .topbar a.mini{font-size:.85rem;font-weight:600;color:var(--green-strong);text-decoration:none}
-
   .hero h1 span{color:var(--green-strong)}
-  .hero p.lead{margin-top:12px}
+
+  .hero-img{
+    width:100%;height:auto;max-height:460px;border-radius:18px;
+    object-fit:cover;object-position:center 15%;margin-top:18px;
+  }
+  .host{margin-top:12px}
+  .host h3{margin-bottom:2px}
+  .host p{font-size:.92rem}
+
   .meta{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
   .chip{
     display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;color:var(--ink);
@@ -73,18 +70,13 @@
     padding:16px 20px;border-radius:14px;border:none;cursor:pointer;transition:background .15s ease;
   }
   .btn:hover{background:var(--green-strong)}
-  .hero .btn{margin-top:22px}
-  .hero .note{margin-top:10px;font-size:.82rem;text-align:center}
+  .hero .btn{margin-top:20px}
 
   ul.list{list-style:none;display:grid;gap:10px}
   ul.list li{position:relative;padding-left:26px;font-size:.96rem;color:var(--ink)}
   ul.list li::before{
     content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:3px;background:var(--green);
   }
-
-  .speaker img{width:100%;height:auto;max-height:440px;border-radius:18px;object-fit:cover;object-position:center 15%;margin-bottom:14px}
-  .speaker h3{font-size:1.15rem;margin-bottom:2px}
-  .speaker p{font-size:.92rem}
 
   .formwrap{background:var(--green-ink);border-radius:20px;padding:24px 20px;color:#fff}
   .formwrap h2{color:#fff;margin-bottom:14px}
@@ -116,17 +108,14 @@
 </head>
 <body>
 
-<header class="topbar">
-  <div class="wrap">
-    <span class="brand"><span class="dot"></span>SOBIR SAID</span>
-    <a class="mini" href="#royxat">Ro'yxatdan o'tish</a>
-  </div>
-</header>
-
 <section class="hero wrap">
-  <span class="eyebrow">Bepul onlayn vebinar</span>
   <h1><span>Bo'g'im va suyak salomatligi</span> haqida bepul vebinar</h1>
-  <p class="lead">Sobir Said bo'g'im-suyak tizimini asrash, harakat va profilaktika haqida sodda tilda gapiradi.</p>
+
+  <img class="hero-img" src="speaker.jpg" alt="Sobir Said" />
+  <div class="host">
+    <h3>Sobir Said</h3>
+    <p>Vebinarni olib boradi va savollarga javob beradi.</p>
+  </div>
 
   <div class="meta">
     <span class="chip">
@@ -137,14 +126,9 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a8a4f" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
       20:00
     </span>
-    <span class="chip">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a8a4f" stroke-width="2"><path d="M4 5h16v12H4z"/><path d="M2 21h20"/></svg>
-      Onlayn · yozuvi beriladi
-    </span>
   </div>
 
   <a class="btn" href="#royxat">Ro'yxatdan o'tish</a>
-  <p class="note">Ro'yxatdan o'tish 30 soniya. Ishtirok bepul.</p>
 </section>
 
 <section class="wrap">
@@ -155,14 +139,6 @@
     <li>Qo'shimchalarni tanlashda nimaga e'tibor berish kerak</li>
     <li>Jonli savol-javob</li>
   </ul>
-</section>
-
-<section class="wrap">
-  <div class="speaker">
-    <img src="speaker.jpg" alt="Sobir Said" />
-    <h3>Sobir Said</h3>
-    <p>Vebinarni olib boradi va savollarga javob beradi.</p>
-  </div>
 </section>
 
 <section class="wrap" id="royxat">
@@ -199,7 +175,6 @@
     var data = { name: form.name.value.trim(), phone: form.phone.value.trim() };
     try { localStorage.setItem('reg_'+Date.now(), JSON.stringify(data)); } catch(_){}
 
-    // Meta Pixel konversiya hodisasi (agar piksel o'rnatilgan bo'lsa)
     try { if (window.fbq) fbq('track', 'Lead'); } catch(_){}
 
     window.location.href = TG_LINK;
