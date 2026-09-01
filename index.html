@@ -10,10 +10,35 @@
 <meta property="og:type" content="website" />
 <meta name="theme-color" content="#ffffff" />
 
-<!-- ============================================================
-     META PIXEL: bazaviy kodni shu yerga joylashtiring.
-     Forma to'ldirilganda "Lead" hodisasi avtomatik jo'natiladi.
-     ============================================================ -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '994898310189842');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=994898310189842&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Pixel yordamchi: fbq mavjud bo'lmasa xatosiz o'tadi -->
+<script>
+  function fbTrack(name, custom){
+    try {
+      if (typeof fbq === 'function') {
+        if (custom) fbq('trackCustom', name);
+        else fbq('track', name);
+      }
+    } catch(_){}
+  }
+</script>
 
 <style>
   :root{
@@ -211,6 +236,8 @@
     modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
     body.classList.add('lock');
+    // Funnel: forma ochildi (tugma bosildi)
+    fbTrack('FormOpened', true);
     setTimeout(function(){
       var n = modal.querySelector('[name=name]');
       if(n) n.focus();
@@ -239,7 +266,11 @@
         phone: f.querySelector('[name=phone]').value.trim()
       };
       try { localStorage.setItem('reg_'+Date.now(), JSON.stringify(data)); } catch(_){}
-      try { if (window.fbq) fbq('track', 'Lead'); } catch(_){}
+
+      // Konversiya hodisalari — Ads Manager'da biror bittasini optimallashtirish
+      // maqsadi qilib tanlang (odatda "CompleteRegistration" yoki "Lead").
+      fbTrack('Lead');
+      fbTrack('CompleteRegistration');
 
       window.location.href = TG_LINK;
     });
