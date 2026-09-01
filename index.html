@@ -229,8 +229,8 @@ src="https://www.facebook.com/tr?id=994898310189842&ev=PageView&noscript=1"
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Lidlarni qabul qiluvchi backend
-  var LEADS_API = '/api/leads/website';
+  // Bizning ichki proxy route (API kalit faqat serverda, brauzerga chiqmaydi)
+  var LEADS_API = '/api/submit-lead';
   // Fallback Telegram havolasi — server telegram_link bermasa ishlatiladi
   var TG_LINK_FALLBACK = 'https://t.me/+R26YNxaF0dVmYjUy';
 
