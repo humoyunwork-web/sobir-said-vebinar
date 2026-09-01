@@ -22,6 +22,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '994898310189842');
 fbq('track', 'PageView');
+fbq('track', 'ViewContent');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=994898310189842&ev=PageView&noscript=1"
@@ -236,8 +237,6 @@ src="https://www.facebook.com/tr?id=994898310189842&ev=PageView&noscript=1"
     modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
     body.classList.add('lock');
-    // Funnel: forma ochildi (tugma bosildi)
-    fbTrack('FormOpened', true);
     setTimeout(function(){
       var n = modal.querySelector('[name=name]');
       if(n) n.focus();
@@ -267,10 +266,8 @@ src="https://www.facebook.com/tr?id=994898310189842&ev=PageView&noscript=1"
       };
       try { localStorage.setItem('reg_'+Date.now(), JSON.stringify(data)); } catch(_){}
 
-      // Konversiya hodisalari — Ads Manager'da biror bittasini optimallashtirish
-      // maqsadi qilib tanlang (odatda "CompleteRegistration" yoki "Lead").
+      // Konversiya hodisasi — formani to'ldirib Telegramga o'tganlar
       fbTrack('Lead');
-      fbTrack('CompleteRegistration');
 
       window.location.href = TG_LINK;
     });
