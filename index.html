@@ -231,15 +231,26 @@ src="https://www.facebook.com/tr?id=994898310189842&ev=PageView&noscript=1"
 
   // Bizning ichki proxy route (API kalit faqat serverda, brauzerga chiqmaydi)
   var LEADS_API = '/api/submit-lead';
-  // Fallback Telegram havolasi — server telegram_link bermasa ishlatiladi
+  // OXIRGI CHORA fallback — faqat organik tashrif (reklama parametrisiz) yoki
+  // backend butunlay javob bermasa ishlatiladi. Reklamadan kelganlar uchun
+  // har doim server bergan dinamik telegram_link'ga o'tkaziladi.
   var TG_LINK_FALLBACK = 'https://t.me/+R26YNxaF0dVmYjUy';
 
-  // 1) Reklama parametrlarini URL query'dan o'qib, sahifa umri davomida saqlash.
-  //    Bo'lmasa null qoladi (organik tashrif) — xato bermaydi.
-  var _q = new URLSearchParams(window.location.search);
-  var CAMPAIGN_ID = _q.get('campaign_id') || null;
-  var AD_ID       = _q.get('ad_id') || null;
-  var FBCLID      = _q.get('fbclid') || null;
+  // 1) Reklama parametrlarini URL query'dan o'qish. Sahifa qayta yuklansa
+  //    ham yo'qolmasligi uchun sessionStorage'da ham saqlaymiz.
+  function readParam(name){
+    var v = null;
+    try { v = new URLSearchParams(window.location.search).get(name); } catch(_){}
+    try {
+      if (v) sessionStorage.setItem('lead_' + name, v);
+      else v = sessionStorage.getItem('lead_' + name);
+    } catch(_){}
+    return v || null;
+  }
+  var CAMPAIGN_ID = readParam('campaign_id');
+  var AD_ID       = readParam('ad_id');
+  var FBCLID      = readParam('fbclid');
+  var IS_CAMPAIGN = !!(CAMPAIGN_ID || AD_ID);
 
   // Google Sheets zaxira nusxasi (Google Forms orqali)
   var GFORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfgZqes3OLaFrKXVBtsDW4YVXM8BHIwt7LjmWNOP2cNoWjCPQ/formResponse';
@@ -304,29 +315,37 @@ src="https://www.facebook.com/tr?id=994898310189842&ev=PageView&noscript=1"
       fbTrack('Lead');
 
       var btn = f.querySelector('button[type=submit]');
-      if (btn) btn.disabled = true;
+      if (btn) { btn.disabled = true; btn.textContent = 'Yuborilmoqda…'; }
 
-      // Bir marta yo'naltirish kafolati (server javob bermasa ham foydalanuvchi qolib ketmasin)
       var _redirected = false;
       function go(link){
         if (_redirected) return;
         _redirected = true;
         window.location.href = link || TG_LINK_FALLBACK;
       }
-      setTimeout(function(){ go(TG_LINK_FALLBACK); }, 6000);
+      // OXIRGI CHORA vaqt chegarasi — dinamik havola sekin internetda ham
+      // yetib kelishiga ulgursin (ilgari 6s juda qisqa edi).
+      setTimeout(function(){ go(TG_LINK_FALLBACK); }, 15000);
 
-      // 2) Lidni backendga JSON sifatida yuborish
-      fetch(LEADS_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-      .then(function(r){ return r.json().catch(function(){ return {}; }); })
-      .then(function(res){
-        // 3) Server bergan telegram_link'ni ishlatish, bo'lmasa fallback
-        go(res && res.telegram_link ? res.telegram_link : TG_LINK_FALLBACK);
-      })
-      .catch(function(){ go(TG_LINK_FALLBACK); });
+      // 2) Lidni backendga JSON sifatida yuborish.
+      //    Tarmoq uzilsa qayta urinamiz (javob kelgan bo'lsa qayta urinmaymiz —
+      //    lid takrorlanmasligi uchun). 3) Javobdagi telegram_link'ni ishlatamiz.
+      function submitLead(retriesLeft){
+        fetch(LEADS_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(res){
+          go(res && res.telegram_link ? res.telegram_link : TG_LINK_FALLBACK);
+        })
+        .catch(function(){
+          if (retriesLeft > 0) { setTimeout(function(){ submitLead(retriesLeft - 1); }, 1500); }
+          else { go(TG_LINK_FALLBACK); }
+        });
+      }
+      submitLead(2);
     });
   });
 </script>
