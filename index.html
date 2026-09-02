@@ -321,7 +321,13 @@ src="https://www.facebook.com/tr?id=994898310189842&ev=PageView&noscript=1"
       function go(link){
         if (_redirected) return;
         _redirected = true;
-        window.location.href = link || TG_LINK_FALLBACK;
+        var tg = link || TG_LINK_FALLBACK;
+        // Telegram o'rniga "rahmat" sahifasiga. telegram_link + reklama
+        // parametrlari query orqali uzatiladi (hardcoded emas).
+        window.location.href = '/rahmat.html?tg=' + encodeURIComponent(tg)
+          + '&c=' + encodeURIComponent(CAMPAIGN_ID || '')
+          + '&a=' + encodeURIComponent(AD_ID || '')
+          + '&f=' + encodeURIComponent(FBCLID || '');
       }
       // OXIRGI CHORA vaqt chegarasi — dinamik havola sekin internetda ham
       // yetib kelishiga ulgursin (ilgari 6s juda qisqa edi).
