@@ -137,6 +137,8 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
 
     // OXIRGI CHORA fallback — faqat `tg` yetib kelmasa
     var FALLBACK = 'https://t.me/+R26YNxaF0dVmYjUy';
+    // Funnel beacon proxy (o'z domenimiz, API kalitsiz)
+    var TRACK_API = '/api/track-event';
     var q = new URLSearchParams(location.search);
 
     // 1) telegram_link — forma-muvaffaqiyat javobidan `?tg=` orqali uzatilgan.
@@ -159,7 +161,26 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     var AD_ID       = keep('ad_id', 'a');
     var FBCLID      = keep('fbclid', 'f');
 
-    document.getElementById('tgBtn').href = tg;
+    // Funnel beacon — o'z proxy'imizga. keepalive: navigatsiya paytida ham yakunlanadi.
+    function track(eventType){
+      try {
+        fetch(TRACK_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ event_type: eventType, campaign_id: CAMPAIGN_ID, ad_id: AD_ID }),
+          keepalive: true
+        });
+      } catch(_){}
+    }
+
+    var btn = document.getElementById('tgBtn');
+    btn.href = tg;
+
+    // "Rahmat sahifasiga o'tdi" — sahifa yuklangan zahoti
+    track('thank_you_view');
+
+    // "TG tugmasini bosdi" — navigatsiyani to'xtatmaymiz, faqat fon so'rovi
+    btn.addEventListener('click', function(){ track('tg_click'); });
   })();
 </script>
 
