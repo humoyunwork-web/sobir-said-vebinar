@@ -16,6 +16,7 @@ module.exports = async (req, res) => {
     return res.status(500).json({ ok: false, telegram_link: null, error: 'LIDEX_LEADS_API_KEY sozlanmagan' });
   }
 
+  // Body — Vercel odatda JSON'ni o'zi parslaydi; string kelsa ham qo'llab-quvvatlaymiz.
   let body = req.body;
   if (typeof body === 'string') {
     try { body = JSON.parse(body); } catch (_) { body = {}; }
@@ -30,12 +31,23 @@ module.exports = async (req, res) => {
   };
   if (body.fbclid) payload.fbclid = body.fbclid;
 
+  // Haqiqiy foydalanuvchi ma'lumotlari — bo'lmasa Lidex bizning Vercel IP'imizni
+  // yuboradi va Meta "bitta IP = ko'p foydalanuvchi" deb ogohlantiradi.
+  const clientIp = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  const clientUa = req.headers['user-agent'] || '';
+  const fbp = (/(?:^|;\s*)_fbp=([^;]+)/.exec(req.headers.cookie || '') || [])[1] || '';
+  if (clientIp) payload.client_ip_address = clientIp;
+  if (clientUa) payload.client_user_agent = clientUa;
+  if (fbp) payload.fbp = fbp;
+
   try {
     const upstream = await fetch(UPSTREAM_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey
+        'x-api-key': apiKey,
+        'x-forwarded-for': clientIp,
+        'user-agent': clientUa
       },
       body: JSON.stringify(payload)
     });
@@ -49,6 +61,6 @@ module.exports = async (req, res) => {
     }
     return res.status(upstream.status).json({ ok: upstream.ok, telegram_link: null });
   } catch (err) {
-    return res.status(502).json({ ok: false, telegram_link: null, error: 'Upstream request failed' });
+    return res.status(502).json({ ok: false, telegram_link: null, error: 'Upstream so\'rovi muvaffaqiyatsiz' });
   }
 };
