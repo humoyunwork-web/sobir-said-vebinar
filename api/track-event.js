@@ -34,12 +34,22 @@ module.exports = async (req, res) => {
     ad_id: body.ad_id != null ? body.ad_id : null
   };
 
+  // Haqiqiy foydalanuvchi IP/UA — Vercel IP'i emas.
+  const clientIp = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  const clientUa = req.headers['user-agent'] || '';
+  const fbp = (/(?:^|;\s*)_fbp=([^;]+)/.exec(req.headers.cookie || '') || [])[1] || '';
+  if (clientIp) payload.client_ip_address = clientIp;
+  if (clientUa) payload.client_user_agent = clientUa;
+  if (fbp) payload.fbp = fbp;
+
   try {
     const upstream = await fetch(UPSTREAM_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey
+        'x-api-key': apiKey,
+        'x-forwarded-for': clientIp,
+        'user-agent': clientUa
       },
       body: JSON.stringify(payload)
     });
