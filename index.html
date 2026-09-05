@@ -65,7 +65,6 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     color:var(--ink);background:var(--bg);line-height:1.45;font-size:16px;
     -webkit-font-smoothing:antialiased;
   }
-  body.lock{overflow:hidden}
   img{max-width:100%;display:block}
 
   .page{max-width:var(--maxw);margin:0 auto;padding:18px 20px 8px}
@@ -87,7 +86,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     display:block;width:100%;height:auto;border-radius:14px;
   }
 
-  /* Sobir Said haqida — endi oddiy karta, tugmaga o'xshamaydi */
+  /* Sobir Said haqida — oddiy karta */
   .bio{border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 4px 16px rgba(18,112,64,.05)}
   .bio .name{
     font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:10px;
@@ -110,6 +109,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
   .cta::after{content:"→";font-size:1.15em;line-height:1}
   .cta:hover{background:var(--green-strong);transform:translateY(-2px);box-shadow:0 16px 34px rgba(26,138,79,.5)}
   .cta:active{transform:translateY(0)}
+  .cta[disabled]{opacity:.7;cursor:default;animation:none;transform:none}
   @keyframes ctaPulse{
     0%,100%{box-shadow:0 10px 26px rgba(26,138,79,.38)}
     50%{box-shadow:0 12px 32px rgba(26,138,79,.6)}
@@ -123,45 +123,8 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:3px;background:var(--green);
   }
 
-  /* Inline forma (pastda) */
-  .formwrap{background:var(--green-ink);border-radius:18px;padding:20px 18px;color:#fff}
-  .formwrap h3{font-size:1.1rem;font-weight:700;margin-bottom:4px}
-  .formwrap p.hint{font-size:.85rem;color:#cfe6d9;margin-bottom:14px}
-
-  form{display:grid;gap:10px}
-  input[type=text],input[type=tel]{
-    width:100%;font-size:1rem;padding:13px 14px;border-radius:11px;border:1px solid var(--line);
-    background:#fff;color:var(--ink);
-  }
-  input:focus{outline:2px solid var(--green);outline-offset:1px}
-  form button{
-    width:100%;background:#fff;color:var(--green-ink);font-weight:700;font-size:1rem;
-    padding:14px 16px;border-radius:11px;border:none;cursor:pointer;transition:background .15s ease;
-  }
-  form button:hover{background:var(--mint)}
-
   footer{padding:20px;text-align:center}
   footer p{font-size:.78rem;color:var(--muted)}
-
-  /* Modal */
-  .modal{
-    position:fixed;inset:0;background:rgba(15,61,36,.55);z-index:100;
-    display:none;align-items:center;justify-content:center;padding:20px;
-  }
-  .modal.open{display:flex}
-  .modal-card{
-    background:#fff;border-radius:20px;padding:24px 20px 20px;max-width:380px;width:100%;
-    position:relative;box-shadow:0 20px 50px rgba(0,0,0,.25);
-  }
-  .modal-card h3{font-size:1.15rem;font-weight:700;margin-bottom:4px;color:var(--ink)}
-  .modal-card p.hint{font-size:.85rem;color:var(--muted);margin-bottom:14px}
-  .modal-card form button{background:var(--green);color:#fff}
-  .modal-card form button:hover{background:var(--green-strong)}
-  .modal-close{
-    position:absolute;top:10px;right:12px;width:32px;height:32px;border:none;background:var(--bg-soft);
-    border-radius:10px;font-size:1.1rem;line-height:1;color:var(--muted);cursor:pointer;
-  }
-  .modal-close:hover{background:var(--mint)}
 
   @media(min-width:640px){
     h1{font-size:1.9rem}
@@ -190,7 +153,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <button class="cta" type="button" data-open>Рўйхатдан ўтиш</button>
+  <button class="cta" type="button">Рўйхатдан ўтиш</button>
 
   <h2>Вебинарда нималар бўлади</h2>
   <ul class="list">
@@ -199,15 +162,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     <li>Артроз, коксартроз ва бел грыжасида энг кўп йўл қўйиладиган хатолар ва нотўғри тушунчалар.</li>
   </ul>
 
-  <div class="formwrap">
-    <h3>Рўйхатдан ўтиш</h3>
-    <p class="hint">Вебинар каналига қўшилиш учун маълумотларингизни киритинг.</p>
-    <form class="regForm">
-      <input type="text" name="name" placeholder="Исмингиз" autocomplete="name" required />
-      <input type="tel" name="phone" placeholder="Телефон рақамингиз" autocomplete="tel" required />
-      <button type="submit">Рўйхатдан ўтиш</button>
-    </form>
-  </div>
+  <button class="cta" type="button">Рўйхатдан ўтиш</button>
 
 </main>
 
@@ -215,31 +170,17 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
   <p>© <span id="yr"></span> Собир Саид</p>
 </footer>
 
-<div class="modal" id="modal" aria-hidden="true">
-  <div class="modal-card" role="dialog" aria-modal="true" aria-label="Рўйхатдан ўтиш">
-    <button class="modal-close" type="button" id="modalClose" aria-label="Ёпиш">✕</button>
-    <h3>Рўйхатдан ўтиш</h3>
-    <p class="hint">Вебинар каналига қўшилиш учун маълумотларингизни киритинг.</p>
-    <form class="regForm">
-      <input type="text" name="name" placeholder="Исмингиз" autocomplete="name" required />
-      <input type="tel" name="phone" placeholder="Телефон рақамингиз" autocomplete="tel" required />
-      <button type="submit">Рўйхатдан ўтиш</button>
-    </form>
-  </div>
-</div>
-
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // Bizning ichki proxy route (API kalit faqat serverda, brauzerga chiqmaydi)
+  // Ichki proxy route'lar — API kalit faqat serverda, brauzerga chiqmaydi
   var LEADS_API = '/api/submit-lead';
-  // OXIRGI CHORA fallback — faqat organik tashrif (reklama parametrisiz) yoki
-  // backend butunlay javob bermasa ishlatiladi. Reklamadan kelganlar uchun
-  // har doim server bergan dinamik telegram_link'ga o'tkaziladi.
+  var TRACK_API = '/api/track-event';
+  // OXIRGI CHORA — faqat backend javob bermasa yoki organik tashrifda
   var TG_LINK_FALLBACK = 'https://t.me/+R26YNxaF0dVmYjUy';
 
-  // 1) Reklama parametrlarini URL query'dan o'qish. Sahifa qayta yuklansa
-  //    ham yo'qolmasligi uchun sessionStorage'da ham saqlaymiz.
+  // Reklama parametrlarini URL query'dan o'qish; qayta yuklashda yo'qolmasin
+  // uchun sessionStorage'da ham saqlaymiz.
   function readParam(name){
     var v = null;
     try { v = new URLSearchParams(window.location.search).get(name); } catch(_){}
@@ -252,109 +193,58 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
   var CAMPAIGN_ID = readParam('campaign_id');
   var AD_ID       = readParam('ad_id');
   var FBCLID      = readParam('fbclid');
-  var IS_CAMPAIGN = !!(CAMPAIGN_ID || AD_ID);
 
-  // Google Sheets zaxira nusxasi (Google Forms orqali)
-  var GFORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfgZqes3OLaFrKXVBtsDW4YVXM8BHIwt7LjmWNOP2cNoWjCPQ/formResponse';
-  var GFORM_NAME  = 'entry.507664743';   // Ismingiz
-  var GFORM_PHONE = 'entry.1628609968';  // Telefon raqamingiz
+  var _redirected = false;
+  function go(link){
+    if (_redirected) return;
+    _redirected = true;
+    window.location.href = link || TG_LINK_FALLBACK;
+  }
 
-  function sendToSheet(d){
+  function onCta(e){
+    var btn = e.currentTarget;
+    if (_redirected) return;
+    btn.disabled = true;
+    btn.textContent = 'Очилмоқда…';
+
+    // Meta Pixel konversiya hodisasi (ikkala pikselga ketadi) — FB atributsiyasi buzilmasin
+    fbTrack('Lead');
+
+    // Lidex funnel — kampaniya bo'yicha klik (keepalive: navigatsiyaga xalaqit bermaydi)
     try {
-      var p = new URLSearchParams();
-      p.append(GFORM_NAME, d.name);
-      p.append(GFORM_PHONE, d.phone);
-      fetch(GFORM_URL, { method:'POST', mode:'no-cors',
-        headers:{'Content-Type':'application/x-www-form-urlencoded'},
-        body: p.toString(), keepalive: true });
+      fetch(TRACK_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event_type: 'tg_click', campaign_id: CAMPAIGN_ID, ad_id: AD_ID }),
+        keepalive: true
+      });
     } catch(_){}
+
+    // OXIRGI CHORA vaqt chegarasi — dinamik havola sekin internetda ham ulgursin
+    setTimeout(function(){ go(TG_LINK_FALLBACK); }, 12000);
+
+    // Dinamik telegram_link — Lidex'dan. Ism/telefon YO'Q, faqat kampaniya.
+    var payload = { campaign_id: CAMPAIGN_ID, ad_id: AD_ID };
+    if (FBCLID) payload.fbclid = FBCLID;
+
+    function submitLead(retriesLeft){
+      fetch(LEADS_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+      .then(function(res){ go(res && res.telegram_link ? res.telegram_link : TG_LINK_FALLBACK); })
+      .catch(function(){
+        if (retriesLeft > 0) setTimeout(function(){ submitLead(retriesLeft - 1); }, 1200);
+        else go(TG_LINK_FALLBACK);
+      });
+    }
+    submitLead(2);
   }
 
-  var modal = document.getElementById('modal');
-  var body = document.body;
-
-  function openModal(){
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    body.classList.add('lock');
-    setTimeout(function(){
-      var n = modal.querySelector('[name=name]');
-      if(n) n.focus();
-    }, 50);
-  }
-  function closeModal(){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    body.classList.remove('lock');
-  }
-
-  Array.prototype.forEach.call(document.querySelectorAll('[data-open]'), function(b){
-    b.addEventListener('click', openModal);
-  });
-  document.getElementById('modalClose').addEventListener('click', closeModal);
-  modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
-
-  Array.prototype.forEach.call(document.querySelectorAll('.regForm'), function(f){
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      if(!f.checkValidity()){ f.reportValidity(); return; }
-
-      var data = {
-        name: f.querySelector('[name=name]').value.trim(),
-        phone: f.querySelector('[name=phone]').value.trim(),
-        campaign_id: CAMPAIGN_ID,
-        ad_id: AD_ID
-      };
-      if (FBCLID) data.fbclid = FBCLID;
-
-      try { localStorage.setItem('reg_'+Date.now(), JSON.stringify(data)); } catch(_){}
-
-      // Zaxira: Google Sheets'ga ham yuborish
-      sendToSheet(data);
-
-      // Meta Pixel konversiya hodisasi
-      fbTrack('Lead');
-
-      var btn = f.querySelector('button[type=submit]');
-      if (btn) { btn.disabled = true; btn.textContent = 'Юборилмоқда…'; }
-
-      var _redirected = false;
-      function go(link){
-        if (_redirected) return;
-        _redirected = true;
-        var tg = link || TG_LINK_FALLBACK;
-        // Telegram o'rniga "rahmat" sahifasiga. telegram_link + reklama
-        // parametrlari query orqali uzatiladi (hardcoded emas).
-        window.location.href = '/rahmat.html?tg=' + encodeURIComponent(tg)
-          + '&c=' + encodeURIComponent(CAMPAIGN_ID || '')
-          + '&a=' + encodeURIComponent(AD_ID || '')
-          + '&f=' + encodeURIComponent(FBCLID || '');
-      }
-      // OXIRGI CHORA vaqt chegarasi — dinamik havola sekin internetda ham
-      // yetib kelishiga ulgursin (ilgari 6s juda qisqa edi).
-      setTimeout(function(){ go(TG_LINK_FALLBACK); }, 15000);
-
-      // 2) Lidni backendga JSON sifatida yuborish.
-      //    Tarmoq uzilsa qayta urinamiz (javob kelgan bo'lsa qayta urinmaymiz —
-      //    lid takrorlanmasligi uchun). 3) Javobdagi telegram_link'ni ishlatamiz.
-      function submitLead(retriesLeft){
-        fetch(LEADS_API, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        })
-        .then(function(r){ return r.json().catch(function(){ return {}; }); })
-        .then(function(res){
-          go(res && res.telegram_link ? res.telegram_link : TG_LINK_FALLBACK);
-        })
-        .catch(function(){
-          if (retriesLeft > 0) { setTimeout(function(){ submitLead(retriesLeft - 1); }, 1500); }
-          else { go(TG_LINK_FALLBACK); }
-        });
-      }
-      submitLead(2);
-    });
+  Array.prototype.forEach.call(document.querySelectorAll('.cta'), function(b){
+    b.addEventListener('click', onCta);
   });
 </script>
 
