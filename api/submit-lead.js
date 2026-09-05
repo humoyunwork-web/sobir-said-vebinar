@@ -23,12 +23,14 @@ module.exports = async (req, res) => {
   }
   body = body || {};
 
+  // Forma olib tashlangan — odatda name/phone kelmaydi. Faqat kelgan
+  // maydonlarni uzatamiz (undefined yubormaymiz).
   const payload = {
-    name: body.name,
-    phone: body.phone,
     campaign_id: body.campaign_id != null ? body.campaign_id : null,
     ad_id: body.ad_id != null ? body.ad_id : null
   };
+  if (body.name) payload.name = body.name;
+  if (body.phone) payload.phone = body.phone;
   if (body.fbclid) payload.fbclid = body.fbclid;
 
   // Haqiqiy foydalanuvchi ma'lumotlari — bo'lmasa Lidex bizning Vercel IP'imizni
