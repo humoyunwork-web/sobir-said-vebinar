@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="uz-Cyrl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Буюртма бериш — Собир Саид</title>
+<meta name="description" content="Табиий таркибли бўғим-суяк маҳсулотига буюртма. Бугун буюртма қилганларга 1 200 000 сўмлик совға." />
+<meta property="og:title" content="Буюртма бериш — Собир Саид" />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#ffffff" />
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '994898310189842');
+fbq('init', '942438661860361');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=994898310189842&ev=PageView&noscript=1"
+/></noscript>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<script>
+  function fbTrack(name, custom){
+    try {
+      if (typeof fbq === 'function') {
+        if (custom) fbq('trackCustom', name);
+        else fbq('track', name);
+      }
+    } catch(_){}
+  }
+</script>
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f2f8f4;
+    --mint:#d9f2e8;
+    --green:#1a8a4f;
+    --green-strong:#127040;
+    --green-ink:#0f3d24;
+    --ink:#182420;
+    --muted:#5d6f66;
+    --line:#e0ebe4;
+    --maxw:560px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.45;font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+
+  .page{max-width:var(--maxw);margin:0 auto;padding:16px 20px 8px}
+
+  /* Timer sarlavha */
+  .timer{
+    background:var(--green-ink);color:#fff;border-radius:16px;
+    padding:14px 16px;text-align:center;margin-bottom:16px;
+  }
+  .timer-label{display:block;font-size:.82rem;font-weight:600;color:#cfe6d9;margin-bottom:4px}
+  .timer-clock{
+    display:block;font-size:2.1rem;font-weight:800;letter-spacing:.06em;
+    font-variant-numeric:tabular-nums;
+  }
+
+  h1{font-size:1.5rem;line-height:1.24;letter-spacing:-0.01em;font-weight:700;margin-bottom:14px}
+  h1 span{color:var(--green-strong)}
+
+  .imgwrap{
+    margin:16px auto;background:var(--mint);border-radius:20px;padding:10px;
+    max-width:320px;
+  }
+  .imgwrap img{display:block;width:100%;height:auto;border-radius:14px}
+
+  .bio{border:1px solid var(--line);border-radius:18px;padding:16px 18px;box-shadow:0 4px 16px rgba(18,112,64,.05);margin-bottom:18px}
+  .bio .name{
+    font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px;
+    padding-left:12px;border-left:4px solid var(--green);
+  }
+  .bio p{font-size:.9rem;color:var(--muted)}
+  .bio b{color:var(--ink)}
+
+  h2{font-size:1.12rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px}
+  ul.list{list-style:none;display:grid;gap:8px;margin-bottom:18px}
+  ul.list li{position:relative;padding-left:24px;font-size:.94rem;color:var(--ink)}
+  ul.list li::before{
+    content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:3px;background:var(--green);
+  }
+
+  .bonus{
+    background:var(--bg-soft);border:1px dashed var(--green);border-radius:14px;
+    padding:14px 16px;font-size:.95rem;color:var(--green-ink);margin-bottom:20px;
+  }
+  .bonus b{color:var(--green-strong)}
+
+  .formwrap{background:var(--green-ink);border-radius:18px;padding:20px 18px;color:#fff}
+  .formwrap h3{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+  .formwrap p.hint{font-size:.85rem;color:#cfe6d9;margin-bottom:14px}
+  form{display:grid;gap:10px}
+  input[type=text],input[type=tel]{
+    width:100%;font-size:1rem;padding:13px 14px;border-radius:11px;border:1px solid var(--line);
+    background:#fff;color:var(--ink);
+  }
+  input:focus{outline:2px solid var(--green);outline-offset:1px}
+  form button{
+    width:100%;background:#fff;color:var(--green-ink);font-weight:800;font-size:1.02rem;
+    padding:15px 16px;border-radius:11px;border:none;cursor:pointer;transition:background .15s ease;
+  }
+  form button:hover{background:var(--mint)}
+  form button[disabled]{opacity:.75;cursor:default}
+
+  .done{text-align:center;padding:26px 18px;border:1px solid var(--line);border-radius:18px;background:var(--bg-soft)}
+  .done .check{
+    width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;
+    font-size:1.7rem;line-height:56px;margin:0 auto 12px;font-weight:800;
+  }
+  .done h3{font-size:1.15rem;margin-bottom:6px}
+  .done p{font-size:.92rem;color:var(--muted)}
+
+  footer{padding:20px;text-align:center}
+  footer p{font-size:.76rem;color:var(--muted)}
+
+  @media(min-width:640px){
+    h1{font-size:1.8rem}
+    .timer-clock{font-size:2.4rem}
+    .imgwrap{max-width:360px}
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+
+  <div class="timer">
+    <span class="timer-label">🎁 1 200 000 сўмлик бонусни олиш учун қолган вақт</span>
+    <span class="timer-clock" id="clock">15:00</span>
+  </div>
+
+  <h1>Табиий таркибли <span>бўғим-суяк маҳсулоти</span> — уй шароитида қулай қўллаш учун</h1>
+
+  <div class="imgwrap">
+    <img src="speaker.jpg" alt="Собир Саид" />
+  </div>
+
+  <div class="bio">
+    <div class="name">Собир Саид</div>
+    <p><b>«Сунна Мед»</b> клиникалар тармоғи асосчиси. Жамоамиз билан бирга бугунгача
+    <b>30 000 дан зиёд</b> инсонларга табиий усуллар ва шарқ табобати ёрдамида хизмат қилдик.</p>
+  </div>
+
+  <h2>Буюртмага нима киради</h2>
+  <ul class="list">
+    <li>Маҳсулотнинг тўлиқ курси — етказиб бериш билан.</li>
+    <li>Қўллаш бўйича ёзма қўлланма.</li>
+    <li>Операторимиз билан алоқа — саволларингизга жавоб беради.</li>
+  </ul>
+
+  <div class="bonus">
+    Кейинги <b id="bonusMin">15</b> дақиқа ичида буюртма қолдирсангиз —
+    <b>1 200 000 сўмлик совға</b> буюртмангизга қўшилади.
+  </div>
+
+  <div class="formwrap" id="formwrap">
+    <h3>Буюртма қолдириш</h3>
+    <p class="hint">Исм ва телефон рақамингизни қолдиринг — операторимиз ўзи боғланади.</p>
+    <form class="orderForm" id="orderForm">
+      <input type="text" name="name" placeholder="Исмингиз" autocomplete="name" required />
+      <input type="tel" name="phone" placeholder="Телефон рақамингиз" autocomplete="tel" required />
+      <button type="submit">Буюртма бериш</button>
+    </form>
+  </div>
+
+  <div class="done" id="done" hidden>
+    <div class="check">✓</div>
+    <h3>Раҳмат! Буюртмангиз қабул қилинди.</h3>
+    <p>Тез орада операторимиз сиз билан боғланади.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>© <span id="yr"></span> Собир Саид</p>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* 15 daqiqalik countdown — har bir tashrifchi uchun localStorage'da saqlanadi.
+     Muddat tugagach yoki birinchi kelishda 15:00 dan qayta boshlanadi. */
+  (function(){
+    var DURATION = 15 * 60 * 1000;
+    var KEY = 'sobir_order_deadline';
+    var deadline;
+    try {
+      deadline = parseInt(localStorage.getItem(KEY) || '', 10);
+      if (!deadline || isNaN(deadline) || deadline <= Date.now()) {
+        deadline = Date.now() + DURATION;
+        localStorage.setItem(KEY, String(deadline));
+      }
+    } catch(_) {
+      deadline = Date.now() + DURATION;
+    }
+    var clock = document.getElementById('clock');
+    var t;
+    function tick(){
+      var left = deadline - Date.now();
+      if (left <= 0) { clock.textContent = '00:00'; if (t) clearInterval(t); return; }
+      var m = Math.floor(left / 60000);
+      var s = Math.floor((left % 60000) / 1000);
+      clock.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+    }
+    t = setInterval(tick, 1000);
+    tick();
+  })();
+
+  /* Forma — lead: Telegram guruh (/api/order) + Google Sheets (zaxira) */
+  (function(){
+    function readParam(name){
+      var v = null;
+      try { v = new URLSearchParams(window.location.search).get(name); } catch(_){}
+      try {
+        if (v) sessionStorage.setItem('ord_' + name, v);
+        else v = sessionStorage.getItem('ord_' + name);
+      } catch(_){}
+      return v || null;
+    }
+    var CAMPAIGN_ID = readParam('campaign_id');
+    var AD_ID       = readParam('ad_id');
+    var FBCLID      = readParam('fbclid');
+
+    /* Google Sheets zaxira nusxasi (Google Forms orqali) — "Sobir Said — buyurtmalar" */
+    var GFORM_URL   = 'https://docs.google.com/forms/d/e/1FAIpQLSfhYLN9O3y0SPEqdZ5FK62w8ovZx4Y7wmQ7L8bbvjwbFahqhw/formResponse';
+    var GFORM_NAME  = 'entry.604555569';
+    var GFORM_PHONE = 'entry.153085556';
+    function sendToSheet(d){
+      try {
+        var p = new URLSearchParams();
+        p.append(GFORM_NAME, d.name);
+        p.append(GFORM_PHONE, d.phone);
+        fetch(GFORM_URL, { method:'POST', mode:'no-cors',
+          headers:{'Content-Type':'application/x-www-form-urlencoded'},
+          body: p.toString(), keepalive: true });
+      } catch(_){}
+    }
+
+    var form = document.getElementById('orderForm');
+    var formwrap = document.getElementById('formwrap');
+    var done = document.getElementById('done');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var data = {
+        name: form.querySelector('[name=name]').value.trim(),
+        phone: form.querySelector('[name=phone]').value.trim(),
+        campaign_id: CAMPAIGN_ID,
+        ad_id: AD_ID
+      };
+      if (FBCLID) data.fbclid = FBCLID;
+
+      try { localStorage.setItem('ord_' + Date.now(), JSON.stringify(data)); } catch(_){}
+
+      sendToSheet(data);
+      fbTrack('Lead');
+
+      var btn = form.querySelector('button[type=submit]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Юборилмоқда…'; }
+
+      function postOrder(retriesLeft){
+        fetch('/api/order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(){})
+        .catch(function(){
+          if (retriesLeft > 0) setTimeout(function(){ postOrder(retriesLeft - 1); }, 1500);
+        });
+      }
+      postOrder(2);
+
+      formwrap.hidden = true;
+      done.hidden = false;
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  })();
+</script>
+
+</body>
+</html>
