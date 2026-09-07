@@ -1,5 +1,5 @@
 // Vercel serverless proxy — faqat serverda ishlaydi.
-// Buyurtma lendingidagi forma bu route'ga POST qiladi ({name, phone, campaign_id, ad_id}).
+// Buyurtma lendingidagi forma bu route'ga POST qiladi ({name, phone}).
 // Biz leadni Telegram guruhga bot orqali yuboramiz. Bot token va guruh
 // chat ID faqat ENV'da — brauzerga HECH QACHON chiqmaydi.
 //
@@ -32,22 +32,14 @@ module.exports = async (req, res) => {
   if (!phone) {
     return res.status(400).json({ ok: false, error: 'phone majburiy' });
   }
-  const campaign = (body.campaign_id || '').toString().trim().slice(0, 100);
-  const ad = (body.ad_id || '').toString().trim().slice(0, 100);
 
-  const lines = [
-    '🛒 Yangi buyurtma',
-    'Ism: ' + (name || '—'),
-    'Telefon: ' + phone
-  ];
-  if (campaign) lines.push('campaign_id: ' + campaign);
-  if (ad) lines.push('ad_id: ' + ad);
+  const text = '🛒 Yangi buyurtma\nIsm: ' + (name || '—') + '\nTelefon: ' + phone;
 
   try {
     const r = await fetch(TG_API + token + '/sendMessage', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text: lines.join('\n'), disable_web_page_preview: true })
+      body: JSON.stringify({ chat_id: chatId, text: text, disable_web_page_preview: true })
     });
     const data = await r.json().catch(function () { return {}; });
     if (data && data.ok) {
