@@ -4,44 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Буюртма бериш — Собир Саид</title>
-<meta name="description" content="Табиий таркибли бўғим-суяк маҳсулотига буюртма. Бугун буюртма қилганларга 1 200 000 сўмлик совға." />
-<meta property="og:title" content="Буюртма бериш — Собир Саид" />
-<meta property="og:type" content="website" />
+<meta name="description" content="Табиий таркибли маҳсулотга буюртма. Бугун буюртма қилганларга 1 200 000 сўмлик совға." />
+<meta name="robots" content="noindex" />
 <meta name="theme-color" content="#ffffff" />
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '994898310189842');
-fbq('init', '942438661860361');
-fbq('track', 'PageView');
-fbq('track', 'ViewContent');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=994898310189842&ev=PageView&noscript=1"
-/></noscript>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-<script>
-  function fbTrack(name, custom){
-    try {
-      if (typeof fbq === 'function') {
-        if (custom) fbq('trackCustom', name);
-        else fbq('track', name);
-      }
-    } catch(_){}
-  }
-</script>
 
 <style>
   :root{
@@ -54,7 +19,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     --ink:#182420;
     --muted:#5d6f66;
     --line:#e0ebe4;
-    --maxw:560px;
+    --maxw:520px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
@@ -63,68 +28,44 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     color:var(--ink);background:var(--bg);line-height:1.45;font-size:16px;
     -webkit-font-smoothing:antialiased;
   }
-  img{max-width:100%;display:block}
 
-  .page{max-width:var(--maxw);margin:0 auto;padding:16px 20px 8px}
+  .page{max-width:var(--maxw);margin:0 auto;padding:20px 20px 8px}
 
   /* Timer sarlavha */
   .timer{
     background:var(--green-ink);color:#fff;border-radius:16px;
-    padding:14px 16px;text-align:center;margin-bottom:16px;
+    padding:16px;text-align:center;margin-bottom:22px;
   }
-  .timer-label{display:block;font-size:.82rem;font-weight:600;color:#cfe6d9;margin-bottom:4px}
+  .timer-label{display:block;font-size:.85rem;font-weight:600;color:#cfe6d9;margin-bottom:4px}
   .timer-clock{
-    display:block;font-size:2.1rem;font-weight:800;letter-spacing:.06em;
+    display:block;font-size:2.3rem;font-weight:800;letter-spacing:.06em;
     font-variant-numeric:tabular-nums;
   }
 
-  h1{font-size:1.5rem;line-height:1.24;letter-spacing:-0.01em;font-weight:700;margin-bottom:14px}
-  h1 span{color:var(--green-strong)}
-
-  .imgwrap{
-    margin:16px auto;background:var(--mint);border-radius:20px;padding:10px;
-    max-width:320px;
-  }
-  .imgwrap img{display:block;width:100%;height:auto;border-radius:14px}
-
-  .bio{border:1px solid var(--line);border-radius:18px;padding:16px 18px;box-shadow:0 4px 16px rgba(18,112,64,.05);margin-bottom:18px}
-  .bio .name{
-    font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px;
-    padding-left:12px;border-left:4px solid var(--green);
-  }
-  .bio p{font-size:.9rem;color:var(--muted)}
-  .bio b{color:var(--ink)}
-
-  h2{font-size:1.12rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px}
-  ul.list{list-style:none;display:grid;gap:8px;margin-bottom:18px}
-  ul.list li{position:relative;padding-left:24px;font-size:.94rem;color:var(--ink)}
+  h2{font-size:1.15rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px}
+  ul.list{list-style:none;display:grid;gap:8px;margin-bottom:22px}
+  ul.list li{position:relative;padding-left:24px;font-size:.95rem;color:var(--ink)}
   ul.list li::before{
     content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:3px;background:var(--green);
   }
 
-  .bonus{
-    background:var(--bg-soft);border:1px dashed var(--green);border-radius:14px;
-    padding:14px 16px;font-size:.95rem;color:var(--green-ink);margin-bottom:20px;
-  }
-  .bonus b{color:var(--green-strong)}
-
   .formwrap{background:var(--green-ink);border-radius:18px;padding:20px 18px;color:#fff}
-  .formwrap h3{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+  .formwrap h3{font-size:1.12rem;font-weight:700;margin-bottom:4px}
   .formwrap p.hint{font-size:.85rem;color:#cfe6d9;margin-bottom:14px}
   form{display:grid;gap:10px}
   input[type=text],input[type=tel]{
-    width:100%;font-size:1rem;padding:13px 14px;border-radius:11px;border:1px solid var(--line);
+    width:100%;font-size:1rem;padding:14px 14px;border-radius:11px;border:1px solid var(--line);
     background:#fff;color:var(--ink);
   }
   input:focus{outline:2px solid var(--green);outline-offset:1px}
   form button{
-    width:100%;background:#fff;color:var(--green-ink);font-weight:800;font-size:1.02rem;
+    width:100%;background:#fff;color:var(--green-ink);font-weight:800;font-size:1.04rem;
     padding:15px 16px;border-radius:11px;border:none;cursor:pointer;transition:background .15s ease;
   }
   form button:hover{background:var(--mint)}
   form button[disabled]{opacity:.75;cursor:default}
 
-  .done{text-align:center;padding:26px 18px;border:1px solid var(--line);border-radius:18px;background:var(--bg-soft)}
+  .done{text-align:center;padding:28px 18px;border:1px solid var(--line);border-radius:18px;background:var(--bg-soft)}
   .done .check{
     width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;
     font-size:1.7rem;line-height:56px;margin:0 auto 12px;font-weight:800;
@@ -132,13 +73,11 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
   .done h3{font-size:1.15rem;margin-bottom:6px}
   .done p{font-size:.92rem;color:var(--muted)}
 
-  footer{padding:20px;text-align:center}
+  footer{padding:22px;text-align:center}
   footer p{font-size:.76rem;color:var(--muted)}
 
   @media(min-width:640px){
-    h1{font-size:1.8rem}
-    .timer-clock{font-size:2.4rem}
-    .imgwrap{max-width:360px}
+    .timer-clock{font-size:2.6rem}
   }
 </style>
 </head>
@@ -151,29 +90,12 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     <span class="timer-clock" id="clock">15:00</span>
   </div>
 
-  <h1>Табиий таркибли <span>бўғим-суяк маҳсулоти</span> — уй шароитида қулай қўллаш учун</h1>
-
-  <div class="imgwrap">
-    <img src="speaker.jpg" alt="Собир Саид" />
-  </div>
-
-  <div class="bio">
-    <div class="name">Собир Саид</div>
-    <p><b>«Сунна Мед»</b> клиникалар тармоғи асосчиси. Жамоамиз билан бирга бугунгача
-    <b>30 000 дан зиёд</b> инсонларга табиий усуллар ва шарқ табобати ёрдамида хизмат қилдик.</p>
-  </div>
-
   <h2>Буюртмага нима киради</h2>
   <ul class="list">
     <li>Маҳсулотнинг тўлиқ курси — етказиб бериш билан.</li>
     <li>Қўллаш бўйича ёзма қўлланма.</li>
     <li>Операторимиз билан алоқа — саволларингизга жавоб беради.</li>
   </ul>
-
-  <div class="bonus">
-    Кейинги <b id="bonusMin">15</b> дақиқа ичида буюртма қолдирсангиз —
-    <b>1 200 000 сўмлик совға</b> буюртмангизга қўшилади.
-  </div>
 
   <div class="formwrap" id="formwrap">
     <h3>Буюртма қолдириш</h3>
@@ -277,7 +199,6 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
       try { localStorage.setItem('ord_' + Date.now(), JSON.stringify(data)); } catch(_){}
 
       sendToSheet(data);
-      fbTrack('Lead');
 
       var btn = form.querySelector('button[type=submit]');
       if (btn) { btn.disabled = true; btn.textContent = 'Юборилмоқда…'; }
