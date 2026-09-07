@@ -86,7 +86,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     display:block;width:100%;height:auto;border-radius:14px;
   }
 
-  /* Sobir Said haqida */
+  /* Sobir Said haqida — oddiy karta */
   .bio{border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 4px 16px rgba(18,112,64,.05)}
   .bio .name{
     font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:10px;
@@ -96,7 +96,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
   .bio .body p{font-size:.92rem;color:var(--muted)}
   .bio .body b{color:var(--ink)}
 
-  /* CTA */
+  /* CTA tugma — aniq ajralib turadi */
   .cta{
     display:flex;align-items:center;justify-content:center;gap:10px;
     width:100%;text-align:center;background:var(--green);color:#fff;
@@ -153,7 +153,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <button class="cta" type="button">Рўйхатдан ўтиш</button>
+  <button class="cta" type="button">Telegram каналига қўшилиш</button>
 
   <h2>Вебинарда нималар бўлади</h2>
   <ul class="list">
@@ -162,7 +162,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     <li>Артроз, коксартроз ва бел грыжасида энг кўп йўл қўйиладиган хатолар ва нотўғри тушунчалар.</li>
   </ul>
 
-  <button class="cta" type="button">Рўйхатдан ўтиш</button>
+  <button class="cta" type="button">Telegram каналига қўшилиш</button>
 
 </main>
 
@@ -173,10 +173,14 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
+  // Ichki proxy route'lar — API kalit faqat serverda, brauzerga chiqmaydi
   var LEADS_API = '/api/submit-lead';
   var TRACK_API = '/api/track-event';
+  // OXIRGI CHORA — faqat backend javob bermasa yoki organik tashrifda
   var TG_LINK_FALLBACK = 'https://t.me/+R26YNxaF0dVmYjUy';
 
+  // Reklama parametrlarini URL query'dan o'qish; qayta yuklashda yo'qolmasin
+  // uchun sessionStorage'da ham saqlaymiz.
   function readParam(name){
     var v = null;
     try { v = new URLSearchParams(window.location.search).get(name); } catch(_){}
@@ -203,8 +207,10 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
     btn.disabled = true;
     btn.textContent = 'Очилмоқда…';
 
+    // Meta Pixel konversiya hodisasi (ikkala pikselga ketadi) — FB atributsiyasi buzilmasin
     fbTrack('Lead');
 
+    // Lidex funnel — kampaniya bo'yicha klik (keepalive: navigatsiyaga xalaqit bermaydi)
     try {
       fetch(TRACK_API, {
         method: 'POST',
@@ -214,8 +220,10 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
       });
     } catch(_){}
 
+    // OXIRGI CHORA vaqt chegarasi — dinamik havola sekin internetda ham ulgursin
     setTimeout(function(){ go(TG_LINK_FALLBACK); }, 12000);
 
+    // Dinamik telegram_link — Lidex'dan. Ism/telefon YO'Q, faqat kampaniya.
     var payload = { campaign_id: CAMPAIGN_ID, ad_id: AD_ID };
     if (FBCLID) payload.fbclid = FBCLID;
 
