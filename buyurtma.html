@@ -59,12 +59,17 @@
     background:#fff;color:var(--ink);
   }
   input:focus{outline:2px solid var(--green);outline-offset:1px}
-  form button{
-    width:100%;background:#fff;color:var(--green-ink);font-weight:800;font-size:1.04rem;
-    padding:15px 16px;border-radius:11px;border:none;cursor:pointer;transition:background .15s ease;
+  .payq-label{font-size:1rem;font-weight:700;margin-top:4px}
+  .payq-btns{display:grid;gap:8px}
+  .payq-btn{
+    width:100%;font-weight:800;font-size:1.02rem;
+    padding:15px 16px;border-radius:11px;cursor:pointer;transition:background .15s ease;
   }
-  form button:hover{background:var(--mint)}
-  form button[disabled]{opacity:.75;cursor:default}
+  .payq-btn[disabled]{opacity:.75;cursor:default}
+  .payq-btn[data-pay="ha"]{background:#fff;color:var(--green-ink);border:none}
+  .payq-btn[data-pay="ha"]:hover{background:var(--mint)}
+  .payq-btn[data-pay="yoq"]{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+  .payq-btn[data-pay="yoq"]:hover{background:rgba(255,255,255,.14)}
 
   .done{text-align:center;padding:28px 18px;border:1px solid var(--line);border-radius:18px;background:var(--bg-soft)}
   .done .check{
@@ -104,7 +109,11 @@
     <form class="orderForm" id="orderForm">
       <input type="text" name="name" placeholder="Исмингиз" autocomplete="name" required />
       <input type="tel" name="phone" placeholder="Телефон рақамингиз" autocomplete="tel" required />
-      <button type="submit">Буюртма бериш</button>
+      <p class="payq-label">Тўлов қилдингизми?</p>
+      <div class="payq-btns">
+        <button type="submit" class="payq-btn" data-pay="ha">Ҳа, қилдим</button>
+        <button type="submit" class="payq-btn" data-pay="yoq">Йўқ, эртага қиламан</button>
+      </div>
     </form>
   </div>
 
@@ -170,11 +179,13 @@
     var GFORM_URL   = 'https://docs.google.com/forms/d/e/1FAIpQLSfhYLN9O3y0SPEqdZ5FK62w8ovZx4Y7wmQ7L8bbvjwbFahqhw/formResponse';
     var GFORM_NAME  = 'entry.604555569';
     var GFORM_PHONE = 'entry.153085556';
+    var GFORM_PAY   = 'entry.2137399598';
     function sendToSheet(d){
       try {
         var p = new URLSearchParams();
         p.append(GFORM_NAME, d.name);
         p.append(GFORM_PHONE, d.phone);
+        if (d.payment_status) p.append(GFORM_PAY, d.payment_status);
         fetch(GFORM_URL, { method:'POST', mode:'no-cors',
           headers:{'Content-Type':'application/x-www-form-urlencoded'},
           body: p.toString(), keepalive: true });
@@ -189,9 +200,14 @@
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
+      var payBtn = e.submitter;
+      var payKey = payBtn && payBtn.dataset ? payBtn.dataset.pay : '';
+      var paymentStatus = payKey === 'ha' ? 'Ҳа, қилдим' : (payKey === 'yoq' ? 'Йўқ, эртага қиламан' : '');
+
       var data = {
         name: form.querySelector('[name=name]').value.trim(),
         phone: form.querySelector('[name=phone]').value.trim(),
+        payment_status: paymentStatus,
         campaign_id: CAMPAIGN_ID,
         ad_id: AD_ID
       };
@@ -201,8 +217,8 @@
 
       sendToSheet(data);
 
-      var btn = form.querySelector('button[type=submit]');
-      if (btn) { btn.disabled = true; btn.textContent = 'Юборилмоқда…'; }
+      Array.prototype.forEach.call(form.querySelectorAll('.payq-btn'), function(b){ b.disabled = true; });
+      if (payBtn) payBtn.textContent = 'Юборилмоқда…';
 
       function postOrder(retriesLeft){
         fetch('/api/order', {
