@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Рўйхатдан ўтиш — Собир Саид</title>
-<meta name="description" content="Видеони кўрдингизми? Таклифдан фойдаланиш учун исм ва телефон рақамингизни қолдиринг." />
+<title>Буюртма бериш — Собир Саид</title>
+<meta name="description" content="Табиий таркибли бўғим-суяк маҳсулотига буюртма қолдиринг — операторимиз сиз билан боғланади." />
 <meta name="robots" content="noindex" />
 <meta name="theme-color" content="#ffffff" />
 
@@ -29,22 +29,10 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  .page{max-width:var(--maxw);margin:0 auto;padding:20px 20px 8px}
+  .page{max-width:var(--maxw);margin:0 auto;padding:24px 20px 8px}
 
-  h1{font-size:1.4rem;line-height:1.32;font-weight:700;letter-spacing:-0.01em;margin-bottom:18px}
+  h1{font-size:1.5rem;line-height:1.28;font-weight:700;letter-spacing:-0.01em;margin-bottom:20px}
   h1 span{color:var(--green-strong)}
-
-  /* Timer sarlavha */
-  .timer{
-    background:var(--green-ink);color:#fff;border-radius:16px;
-    padding:16px;text-align:center;margin-bottom:22px;
-  }
-  .timer-label{display:block;font-size:1.02rem;font-weight:600;color:#cfe6d9;margin-bottom:6px;line-height:1.35}
-  .timer-label b{color:#fff;font-weight:800}
-  .timer-clock{
-    display:block;font-size:2.3rem;font-weight:800;letter-spacing:.06em;
-    font-variant-numeric:tabular-nums;
-  }
 
   h2{font-size:1.15rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:10px}
   ul.list{list-style:none;display:grid;gap:8px;margin-bottom:22px}
@@ -81,7 +69,7 @@
   footer p{font-size:.76rem;color:var(--muted)}
 
   @media(min-width:640px){
-    .timer-clock{font-size:2.6rem}
+    h1{font-size:1.8rem}
   }
 </style>
 </head>
@@ -89,33 +77,28 @@
 
 <main class="page">
 
-  <h1>Видеодаги <span>таклифдан фойдаланиш</span> учун рўйхатдан ўтинг</h1>
+  <h1><span>Бўғим ва суяк</span> соғлиғи учун табиий восита — ҳозир буюртма беринг</h1>
 
-  <div class="timer">
-    <span class="timer-label">🎁 <b>500 000 сўмлик</b> бонусни олиш учун қолган вақт</span>
-    <span class="timer-clock" id="clock">15:00</span>
-  </div>
-
-  <h2>Рўйхатдан ўтгач нима бўлади</h2>
+  <h2>Буюртмага нима киради</h2>
   <ul class="list">
-    <li>Операторимиз сиз билан боғланади.</li>
-    <li>Видеода айтилган таклиф ва шартлар ҳақида батафсил тушунтирилади.</li>
-    <li>Барча саволларингизга жавоб оласиз.</li>
+    <li>Маҳсулотнинг тўлиқ курси — уйингизга етказиб бериш билан.</li>
+    <li>Қўллаш бўйича ёзма қўлланма ва тавсиялар.</li>
+    <li>Операторимиз билан алоқа — барча саволларингизга жавоб беради.</li>
   </ul>
 
   <div class="formwrap" id="formwrap">
-    <h3>Рўйхатдан ўтиш</h3>
+    <h3>Буюртма қолдириш</h3>
     <p class="hint">Исм ва телефон рақамингизни қолдиринг — операторимиз ўзи боғланади.</p>
     <form class="orderForm" id="orderForm">
       <input type="text" name="name" placeholder="Исмингиз" autocomplete="name" required />
       <input type="tel" name="phone" placeholder="Телефон рақамингиз" autocomplete="tel" required />
-      <button type="submit">Рўйхатдан ўтиш</button>
+      <button type="submit">Буюртма бериш</button>
     </form>
   </div>
 
   <div class="done" id="done" hidden>
     <div class="check">✓</div>
-    <h3>Раҳмат! Рўйхатдан ўтдингиз.</h3>
+    <h3>Раҳмат! Буюртмангиз қабул қилинди.</h3>
     <p>Тез орада операторимиз сиз билан боғланади.</p>
   </div>
 
@@ -127,34 +110,6 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-
-  /* 15 daqiqalik countdown — har bir tashrifchi uchun localStorage'da saqlanadi.
-     Muddat tugagach yoki birinchi kelishda 15:00 dan qayta boshlanadi. */
-  (function(){
-    var DURATION = 15 * 60 * 1000;
-    var KEY = 'sobir_order_deadline';
-    var deadline;
-    try {
-      deadline = parseInt(localStorage.getItem(KEY) || '', 10);
-      if (!deadline || isNaN(deadline) || deadline <= Date.now()) {
-        deadline = Date.now() + DURATION;
-        localStorage.setItem(KEY, String(deadline));
-      }
-    } catch(_) {
-      deadline = Date.now() + DURATION;
-    }
-    var clock = document.getElementById('clock');
-    var t;
-    function tick(){
-      var left = deadline - Date.now();
-      if (left <= 0) { clock.textContent = '00:00'; if (t) clearInterval(t); return; }
-      var m = Math.floor(left / 60000);
-      var s = Math.floor((left % 60000) / 1000);
-      clock.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
-    }
-    t = setInterval(tick, 1000);
-    tick();
-  })();
 
   /* Forma — lead: Telegram guruh (/api/order) + Google Sheets (zaxira) */
   (function(){
