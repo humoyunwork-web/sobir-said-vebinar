@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Буюртма бериш — Собир Саид</title>
-<meta name="description" content="Табиий таркибли маҳсулотга буюртма. Бугун буюртма қилганларга 500 000 сўмлик совға." />
+<title>Рўйхатдан ўтиш — Собир Саид</title>
+<meta name="description" content="Видеони кўрдингизми? Таклифдан фойдаланиш учун исм ва телефон рақамингизни қолдиринг." />
 <meta name="robots" content="noindex" />
 <meta name="theme-color" content="#ffffff" />
 
@@ -30,6 +30,9 @@
   }
 
   .page{max-width:var(--maxw);margin:0 auto;padding:20px 20px 8px}
+
+  h1{font-size:1.4rem;line-height:1.32;font-weight:700;letter-spacing:-0.01em;margin-bottom:18px}
+  h1 span{color:var(--green-strong)}
 
   /* Timer sarlavha */
   .timer{
@@ -86,31 +89,33 @@
 
 <main class="page">
 
+  <h1>Видеодаги <span>таклифдан фойдаланиш</span> учун рўйхатдан ўтинг</h1>
+
   <div class="timer">
     <span class="timer-label">🎁 <b>500 000 сўмлик</b> бонусни олиш учун қолган вақт</span>
     <span class="timer-clock" id="clock">15:00</span>
   </div>
 
-  <h2>Буюртмага нима киради</h2>
+  <h2>Рўйхатдан ўтгач нима бўлади</h2>
   <ul class="list">
-    <li>Маҳсулотнинг тўлиқ курси — етказиб бериш билан.</li>
-    <li>Қўллаш бўйича ёзма қўлланма.</li>
-    <li>Операторимиз билан алоқа — саволларингизга жавоб беради.</li>
+    <li>Операторимиз сиз билан боғланади.</li>
+    <li>Видеода айтилган таклиф ва шартлар ҳақида батафсил тушунтирилади.</li>
+    <li>Барча саволларингизга жавоб оласиз.</li>
   </ul>
 
   <div class="formwrap" id="formwrap">
-    <h3>Буюртма қолдириш</h3>
+    <h3>Рўйхатдан ўтиш</h3>
     <p class="hint">Исм ва телефон рақамингизни қолдиринг — операторимиз ўзи боғланади.</p>
     <form class="orderForm" id="orderForm">
       <input type="text" name="name" placeholder="Исмингиз" autocomplete="name" required />
       <input type="tel" name="phone" placeholder="Телефон рақамингиз" autocomplete="tel" required />
-      <button type="submit">Буюртма бериш</button>
+      <button type="submit">Рўйхатдан ўтиш</button>
     </form>
   </div>
 
   <div class="done" id="done" hidden>
     <div class="check">✓</div>
-    <h3>Раҳмат! Буюртмангиз қабул қилинди.</h3>
+    <h3>Раҳмат! Рўйхатдан ўтдингиз.</h3>
     <p>Тез орада операторимиз сиз билан боғланади.</p>
   </div>
 
