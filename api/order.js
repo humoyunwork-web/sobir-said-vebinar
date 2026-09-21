@@ -33,7 +33,7 @@ module.exports = async (req, res) => {
     return res.status(400).json({ ok: false, error: 'phone majburiy' });
   }
 
-  const text = '🛒 Yangi buyurtma\nIsm: ' + (name || '—') + '\nTelefon: ' + phone;
+  const text = '📩 ArgonaCaps — yangi so\'rov\nIsm: ' + (name || '—') + '\nTelefon: ' + phone;
 
   try {
     const r = await fetch(TG_API + token + '/sendMessage', {
