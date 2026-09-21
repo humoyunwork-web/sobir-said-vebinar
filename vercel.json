@@ -1,7 +1,9 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/", "has": [{ "type": "host", "value": "argonacaps.vercel.app" }], "destination": "/argonacaps", "permanent": false }
+  ],
   "rewrites": [
-    { "source": "/", "has": [{ "type": "host", "value": "argonacaps.vercel.app" }], "destination": "/buyurtma" },
     { "source": "/argonacaps", "destination": "/buyurtma" },
     { "source": "/malumot", "destination": "/buyurtma" }
   ]
