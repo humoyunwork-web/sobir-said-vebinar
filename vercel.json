@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
+    { "source": "/", "has": [{ "type": "host", "value": "argonacaps.vercel.app" }], "destination": "/buyurtma" },
     { "source": "/argonacaps", "destination": "/buyurtma" },
     { "source": "/malumot", "destination": "/buyurtma" }
   ]
