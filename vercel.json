@@ -1,7 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/argonacaps", "destination": "/buyurtma.html" },
-    { "source": "/malumot", "destination": "/buyurtma.html" }
+    { "source": "/argonacaps", "destination": "/buyurtma" },
+    { "source": "/malumot", "destination": "/buyurtma" }
   ]
 }
