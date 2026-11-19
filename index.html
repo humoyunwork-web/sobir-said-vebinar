@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Бўғим ва суяк саломатлиги ҳақида бепул вебинар — Собир Саид</title>
-<meta name="description" content="Бўғим-суяк тизими, ҳаракат ва профилактика ҳақида бепул онлайн вебинар. Собир Саид билан — 11–12 сентябр, 20:00." />
+<meta name="description" content="Бўғим-суяк тизими, ҳаракат ва профилактика ҳақида бепул онлайн вебинар. Собир Саид билан — 3–4 декабр, 20:00." />
 <meta property="og:title" content="Бўғим ва суяк саломатлиги ҳақида бепул вебинар" />
-<meta property="og:description" content="Собир Саид билан бепул онлайн вебинар. 11–12 сентябр, 20:00." />
+<meta property="og:description" content="Собир Саид билан бепул онлайн вебинар. 3–4 декабр, 20:00." />
 <meta property="og:type" content="website" />
 <meta name="theme-color" content="#ffffff" />
 
@@ -137,7 +137,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
 
 <main class="page">
 
-  <span class="date">11–12 сентябр · 20:00</span>
+  <span class="date">3–4 декабр · 20:00</span>
   <h1><span>Бўғим ва суяклар</span> йиллар ўтиб нега заифлашади — ва бунга қандай қилиб табиий, безарар йўллар билан ечим топиш мумкин</h1>
 
   <div class="imgwrap">
@@ -177,7 +177,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
   var LEADS_API = '/api/submit-lead';
   var TRACK_API = '/api/track-event';
   // OXIRGI CHORA — faqat backend javob bermasa yoki organik tashrifda
-  var TG_LINK_FALLBACK = 'https://t.me/+R26YNxaF0dVmYjUy';
+  var TG_LINK_FALLBACK = 'https://t.me/+hwY62X92iahmN2Ni';
 
   // Reklama parametrlarini URL query'dan o'qish; qayta yuklashda yo'qolmasin
   // uchun sessionStorage'da ham saqlaymiz.
@@ -234,7 +234,7 @@ src="https://www.facebook.com/tr?id=942438661860361&ev=PageView&noscript=1"
         body: JSON.stringify(payload)
       })
       .then(function(r){ return r.json().catch(function(){ return {}; }); })
-      .then(function(res){ go(res && res.telegram_link ? res.telegram_link : TG_LINK_FALLBACK); })
+      .then(function(){ go(TG_LINK_FALLBACK); })
       .catch(function(){
         if (retriesLeft > 0) setTimeout(function(){ submitLead(retriesLeft - 1); }, 1200);
         else go(TG_LINK_FALLBACK);
